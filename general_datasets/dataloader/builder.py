@@ -26,6 +26,7 @@ def build_train_dataloader(dataset,
     batch_sampler_cfg["batch_size"] = batch_size
     if not dist:
         sampler = RandomSampler(dataset)
+        # sampler = SequentialSampler(dataset)
 
     else:
         sampler = DistributedSampler(dataset, rank=rank, seed=seed)

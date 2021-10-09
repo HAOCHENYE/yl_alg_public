@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py" line="486" mnemonic="6" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0acb8dd7-d22d-424a-9c61-c615dc0ba655" name="Default Changelist" comment="" />
+    <list default="true" id="0acb8dd7-d22d-424a-9c61-c615dc0ba655" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/face_detection/configs/retina_face/retina_face_10_8.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/face_detection/configs/retina_face/retinaface_aug.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_detection/configs/retina_face/retina_face.py" beforeDir="false" afterPath="$PROJECT_DIR$/face_detection/configs/retina_face/retina_face.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_detection/datasets/pipelines/transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/face_detection/datasets/pipelines/transform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_detection/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/face_detection/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py" beforeDir="false" afterPath="$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/face_detection/models/detector/detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/face_detection/models/detector/detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_datasets/dataloader/builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/general_datasets/dataloader/builder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +20,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/yl_alg_group$train_face_detector.coverage" NAME="train_face_detector Coverage Results" MODIFIED="1632990683553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
-    <SUITE FILE_PATH="coverage/yl_alg_group$demo_retinaface.coverage" NAME="demo_retinaface Coverage Results" MODIFIED="1632990216190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/face_detection" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$train_face_detector.coverage" NAME="train_face_detector Coverage Results" MODIFIED="1633746298324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$demo_retinaface.coverage" NAME="demo_retinaface Coverage Results" MODIFIED="1633745417076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/face_detection" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-2027420523">
@@ -22,34 +30,35 @@
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="372" />
+          <entry key="py" value="410" />
           <entry key="sh" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Bash" value="1" />
-          <entry key="Python" value="372" />
+          <entry key="Python" value="410" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="2593" />
+          <entry key="Python Console" value="3032" />
           <entry key="dummy" value="38" />
-          <entry key="py" value="14637" />
+          <entry key="py" value="16561" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="38" />
-          <entry key="Python" value="17230" />
+          <entry key="Python" value="19593" />
         </counts>
       </usages-collector>
     </session>
@@ -59,14 +68,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/face_detection/models/detector/detector.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1710">
-              <caret line="57" column="47" lean-forward="true" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+            <state relative-caret-position="247">
+              <caret line="63" selection-start-line="63" selection-end-line="66" selection-end-column="71" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
-                <marker date="1632989561879" expanded="true" signature="850:1042" ph="..." />
-                <marker date="1632989561879" expanded="true" signature="1279:1407" ph="..." />
-                <marker date="1632989561879" expanded="true" signature="1629:1894" ph="..." />
-                <marker date="1632989561879" expanded="true" signature="1676:1894" ph="..." />
               </folding>
             </state>
           </provider>
@@ -75,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="321" column="57" selection-start-line="321" selection-start-column="41" selection-end-line="321" selection-end-column="57" />
+            <state relative-caret-position="355">
+              <caret line="262" column="25" selection-start-line="262" selection-start-column="19" selection-end-line="262" selection-end-column="25" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -85,82 +90,93 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/util_func.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/1170083100/cv2/cv2/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="9641" column="34" lean-forward="true" selection-start-line="9641" selection-start-column="34" selection-end-line="9641" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/face_detection/demo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/image/io.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="241" column="26" selection-start-line="241" selection-start-column="17" selection-end-line="241" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/torch/nn/modules/module.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="765" selection-start-line="765" selection-end-line="765" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="76" selection-start-line="76" selection-end-line="76" />
+            <state relative-caret-position="85">
+              <caret line="470" selection-start-line="470" selection-end-line="470" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
+                <marker date="1633691008486" expanded="true" signature="8117:9142" ph="..." />
+                <marker date="1633691008486" expanded="true" signature="21161:21166" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/face_detection/trainer.py">
+        <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/format.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3240">
-              <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+            <state relative-caret-position="305">
+              <caret line="85" selection-start-line="85" selection-end-line="85" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+                <marker date="1632982739592" expanded="true" signature="983:988" ph="..." />
+                <marker date="1632982739592" expanded="true" signature="1311:1312" ph="..." />
+                <marker date="1632982739592" expanded="true" signature="1311:2402" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/1432997506/codecs.py">
+        <entry file="file://$PROJECT_DIR$/face_detection/configs/retina_face/retinaface_aug.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="309" selection-start-line="309" selection-end-line="309" />
+            <state relative-caret-position="106">
+              <caret line="116" column="16" lean-forward="true" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/compose.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/general_datasets/dataloader/builder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+              <folding>
+                <element signature="e#48#81#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/face_detection/configs/retina_face/retina_face_10_8.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="111" column="13" lean-forward="true" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/numpy/core/numeric.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="290" column="4" selection-start-line="290" selection-start-column="4" selection-end-line="290" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/face_detection/datasets/pipelines/loading.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-293">
+              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+              <folding>
+                <marker date="1632973760529" expanded="true" signature="2358:2364" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -176,45 +192,44 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>gt_bboxes</find>
-      <find>landm_t</find>
-      <find>truths</find>
-      <find>MultiBoxLoss</find>
-      <find>idx</find>
-      <find>priors</find>
-      <find>mean</find>
-      <find>parse_args</find>
-      <find>args</find>
-      <find>fuse_</find>
-      <find>fuse-</find>
-      <find>load_checkpoint</find>
-      <find>variance</find>
-      <find>YLDataParallel</find>
-      <find>conf_threshold</find>
-      <find>np</find>
-      <find>nms_threshold</find>
-      <find>build_detector</find>
-      <find>forward_test</find>
-      <find>YoloB</find>
-      <find>seed</find>
-      <find>conf</find>
-      <find>inds</find>
-      <find>org</find>
-      <find>scale_factor</find>
       <find>conf_t</find>
-      <find>best_prior_idx</find>
-      <find>labels</find>
-      <find>loc</find>
-      <find>pos1</find>
+      <find>_</find>
+      <find>_resize_landmarks</find>
+      <find>bboxes</find>
+      <find>loss_c</find>
+      <find>scores</find>
+      <find>forward_test</find>
+      <find>gt_bboxes</find>
+      <find>softmax</find>
+      <find>shuffle</find>
+      <find>truths</find>
+      <find>loc_t</find>
+      <find>build_train_dataloader</find>
+      <find>seed</find>
+      <find>img_shape</find>
+      <find>img_w</find>
+      <find>bbox_fields</find>
+      <find>cur_dir</find>
+      <find>_crop_data</find>
+      <find>RandomCrop</find>
+      <find>landms_valid_inds</find>
+      <find>crop_landmarks</find>
+      <find>randomflip</find>
+      <find>cropped</find>
+      <find>gt_landmarks</find>
+      <find>flip</find>
+      <find>RandomFlip</find>
+      <find>crop</find>
+      <find>conf_threshold</find>
+      <find>valid_inds</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backbone/general_sand_net.py" />
-        <option value="$PROJECT_DIR$/backbone/vggnet.py" />
-        <option value="$PROJECT_DIR$/backbone/__init__.py" />
-        <option value="$PROJECT_DIR$/face_detection/models/detector/__init__.py" />
         <option value="$PROJECT_DIR$/face_detection/models/detector/retinanet.py" />
         <option value="$PROJECT_DIR$/builder/__init__.py" />
         <option value="$PROJECT_DIR$/plugins/custom_convs/__init__.py" />
@@ -238,7 +253,6 @@
         <option value="$PROJECT_DIR$/datasets/pipelines/custom_transform.py" />
         <option value="$PROJECT_DIR$/datasets/dataloader/builder.py" />
         <option value="$PROJECT_DIR$/datasets/pipelines/format.py" />
-        <option value="$PROJECT_DIR$/face_detection/datasets/pipelines/transform.py" />
         <option value="$PROJECT_DIR$/custom_hook/eval_hook.py" />
         <option value="$PROJECT_DIR$/tools/test.py" />
         <option value="$PROJECT_DIR$/face_detection/Trainer.py" />
@@ -258,10 +272,15 @@
         <option value="$PROJECT_DIR$/face_detection/datasets/wider_coco_dataset.py" />
         <option value="$PROJECT_DIR$/tools/dist_train.sh" />
         <option value="$PROJECT_DIR$/general_datasets/pipelines/format.py" />
+        <option value="$PROJECT_DIR$/face_detection/datasets/pipelines/transform.py" />
         <option value="$PROJECT_DIR$/face_detection/configs/retina_face/retina_face.py" />
-        <option value="$PROJECT_DIR$/face_detection/models/detector/detector.py" />
         <option value="$PROJECT_DIR$/face_detection/demo.py" />
+        <option value="$PROJECT_DIR$/general_datasets/dataloader/builder.py" />
+        <option value="$PROJECT_DIR$/face_detection/models/detector/detector.py" />
         <option value="$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py" />
+        <option value="$PROJECT_DIR$/face_detection/configs/retina_face/retina_face_10_8.py" />
+        <option value="$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py" />
+        <option value="$PROJECT_DIR$/face_detection/configs/retina_face/retinaface_aug.py" />
       </list>
     </option>
   </component>
@@ -277,12 +296,12 @@
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -303,17 +322,19 @@
             <path>
               <item name="yl_alg_group" type="b2602c69:ProjectViewProjectNode" />
               <item name="yl_alg_group" type="462c0819:PsiDirectoryNode" />
-              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="general_datasets" type="462c0819:PsiDirectoryNode" />
+              <item name="pipelines" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yl_alg_group" type="b2602c69:ProjectViewProjectNode" />
               <item name="yl_alg_group" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -367,7 +388,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/face_detection/demo.py" />
-      <option name="PARAMETERS" value="../face_detection/configs/retina_face/retina_face.py ./work_dirs/retina_face_0930/latest.pth ./image ./work_dirs/retina_face_0930/result" />
+      <option name="PARAMETERS" value="../face_detection/configs/retina_face/retinaface_aug.py ./work_dirs/retinaface_colorjitter/latest.pth ./image ./work_dirs/retinaface_colorjitter/result" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -389,7 +410,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/train.py" />
-      <option name="PARAMETERS" value="../face_detection/configs/retina_face/retina_face.py" />
+      <option name="PARAMETERS" value="../face_detection/configs/retina_face/retinaface_aug.py" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -429,15 +450,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49811321" visible="true" weight="0.18550107" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49811321" visible="true" weight="0.18763326" />
       <window_info id="Structure" order="1" sideWeight="0.5018868" side_tool="true" weight="0.18550107" />
       <window_info id="Alibaba Cloud Explorer" order="2" weight="0.32995737" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32962137" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.42873052" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.40979955" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.42809364" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.42474917" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32962137" />
@@ -448,7 +470,7 @@
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.311804" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32962137" />
-      <window_info anchor="bottom" id="File Transfer" order="14" weight="0.32962137" />
+      <window_info anchor="bottom" id="File Transfer" order="14" weight="0.32887402" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -515,44 +537,29 @@
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/face_detection/demo.py</url>
-          <line>34</line>
-          <option name="timeStamp" value="97" />
+          <url>file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py</url>
+          <line>509</line>
+          <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/face_detection/demo.py</url>
-          <line>72</line>
-          <option name="timeStamp" value="99" />
+          <url>file://$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py</url>
+          <line>588</line>
+          <option name="timeStamp" value="98" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py</url>
-          <line>515</line>
-          <option name="timeStamp" value="125" />
+          <line>276</line>
+          <option name="timeStamp" value="110" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py</url>
-          <line>480</line>
-          <option name="timeStamp" value="126" />
+          <line>263</line>
+          <option name="timeStamp" value="115" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py</url>
-          <line>469</line>
-          <option name="timeStamp" value="127" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py</url>
-          <line>296</line>
-          <option name="timeStamp" value="137" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py</url>
-          <line>284</line>
-          <option name="timeStamp" value="138" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py</url>
-          <line>321</line>
-          <option name="timeStamp" value="139" />
+          <line>256</line>
+          <option name="timeStamp" value="116" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -565,116 +572,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/torch/utils/data/_utils/collate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/torch/utils/data/_utils/fetch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/torch/utils/data/dataloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="447" selection-start-line="447" selection-end-line="447" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/ddp_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-            <marker date="1632901740042" expanded="true" signature="4007:4008" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/load.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-          <folding>
-            <element signature="e#48#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/general_datasets/dataloader/builder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="43" column="24" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-          <folding>
-            <element signature="e#48#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/torch/distributed/distributed_c10d.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="827" column="4" selection-start-line="827" selection-start-column="4" selection-end-line="827" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/utils/tester.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/utils/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom_hook/eval_hook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1830">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="e#48#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/dense_head/retina_head/retina_head.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="294" column="29" lean-forward="true" selection-start-line="294" selection-start-column="29" selection-end-line="294" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/tester.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/runner/epoch_based_runner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="34" column="41" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
@@ -689,9 +586,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -701,16 +595,6 @@
           <caret line="11" column="66" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="66" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/datasets/pipelines/transform.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="59" column="65" lean-forward="true" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="65" />
-          <folding>
-            <marker date="1632973760591" expanded="true" signature="667:1072" ph="..." />
           </folding>
         </state>
       </provider>
@@ -733,9 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -755,13 +636,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/builder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="32" lean-forward="true" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/face_detection/builder.py" />
     <entry file="file://$PROJECT_DIR$/util/process_demo_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -803,38 +678,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="144" column="17" lean-forward="true" selection-start-line="144" selection-start-column="17" selection-end-line="144" selection-end-column="17" />
-          <folding>
-            <element signature="e#48#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sampler/yolo_sampler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/utils/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/datasets/wider_coco_dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding>
-            <element signature="e#48#64#0" expanded="true" />
-            <marker date="1632974224629" expanded="true" signature="6551:6556" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -844,16 +691,6 @@
           <caret line="58" column="25" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="25" />
           <folding>
             <element signature="e#48#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/datasets/pipelines/loading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
-          <folding>
-            <marker date="1632973760529" expanded="true" signature="2358:2364" ph="..." />
           </folding>
         </state>
       </provider>
@@ -869,47 +706,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/format.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="38" column="67" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <marker date="1632982739592" expanded="true" signature="983:988" ph="..." />
-            <marker date="1632982739592" expanded="true" signature="1311:1312" ph="..." />
-            <marker date="1632982739592" expanded="true" signature="1311:2402" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/compose.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="15" selection-end-line="40" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="17" column="57" lean-forward="true" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/configs/retina_face/retina_face.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="116" column="68" selection-start-line="116" selection-start-column="68" selection-end-line="116" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/trainer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3240">
-          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -920,30 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/1432997506/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="309" selection-start-line="309" selection-end-line="309" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/1170083100/cv2/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="9641" column="34" lean-forward="true" selection-start-line="9641" selection-start-column="34" selection-end-line="9641" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/image/io.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -951,44 +727,257 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/demo.py">
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/1432997506/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="198">
+          <caret line="311" selection-start-line="311" selection-end-line="311" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/1432997506/idlelib/configdialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="2249" column="8" selection-start-line="2249" selection-start-column="8" selection-end-line="2249" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backbone/vggnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/face_detection/models/detector/detector.py">
+    <entry file="file://$PROJECT_DIR$/sampler/sampler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="57" column="47" lean-forward="true" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+        <state relative-caret-position="270">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           <folding>
-            <element signature="e#0#30#0" expanded="true" />
-            <marker date="1632989561879" expanded="true" signature="850:1042" ph="..." />
-            <marker date="1632989561879" expanded="true" signature="1279:1407" ph="..." />
-            <marker date="1632989561879" expanded="true" signature="1629:1894" ph="..." />
-            <marker date="1632989561879" expanded="true" signature="1676:1894" ph="..." />
+            <element signature="e#0#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_datasets/builder.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/torch/utils/data/distributed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face_detection/datasets/wider_coco_dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1985">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="e#48#64#0" expanded="true" />
+            <marker date="1632974224629" expanded="true" signature="6551:6556" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/util_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
+        <state relative-caret-position="1135">
+          <caret line="167" column="16" selection-start-line="167" selection-start-column="10" selection-end-line="167" selection-end-column="16" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/face_detection/configs/retina_face/retina_face.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="116" column="69" lean-forward="true" selection-start-line="116" selection-start-column="69" selection-end-line="116" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face_detection/trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="26" column="109" selection-start-line="26" selection-start-column="106" selection-end-line="26" selection-end-column="109" />
+          <folding>
+            <element signature="e#1#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/torch/utils/data/sampler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="226" column="30" selection-start-line="226" selection-start-column="30" selection-end-line="226" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3055">
+          <caret line="141" column="16" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="16" />
+          <folding>
+            <element signature="e#48#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sampler/yolo_sampler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face_detection/demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="73" column="76" selection-start-line="73" selection-start-column="76" selection-end-line="73" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/1170083100/cv2/cv2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="9641" column="4" selection-start-line="9641" selection-start-column="4" selection-end-line="9641" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face_detection/datasets/pipelines/transform.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <marker date="1632998900051" expanded="true" signature="667:1317" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face_detection/datasets/pipelines/loading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-293">
+          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+          <folding>
+            <marker date="1632973760529" expanded="true" signature="2358:2364" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/numpy/core/numeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="290" column="4" selection-start-line="290" selection-start-column="4" selection-end-line="290" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/1170083100/numpy/core/_multiarray_umath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-18">
+          <caret line="2865" column="4" selection-start-line="2865" selection-start-column="4" selection-end-line="2865" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="2123" column="4" selection-start-line="2123" selection-start-column="4" selection-end-line="2123" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/1432997506/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="752" column="22" lean-forward="true" selection-start-line="752" selection-start-column="22" selection-end-line="752" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_datasets/dataloader/builder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+          <folding>
+            <element signature="e#48#81#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/compose.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face_detection/configs/retina_face/retina_face_10_8.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="111" column="13" lean-forward="true" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/format.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="85" selection-start-line="85" selection-end-line="85" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <marker date="1632982739592" expanded="true" signature="983:988" ph="..." />
+            <marker date="1632982739592" expanded="true" signature="1311:1312" ph="..." />
+            <marker date="1632982739592" expanded="true" signature="1311:2402" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face_detection/configs/retina_face/retinaface_aug.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="116" column="16" lean-forward="true" selection-start-line="116" selection-start-column="16" selection-end-line="116" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/face_detection/models/detector/detector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="63" selection-start-line="63" selection-end-line="66" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="470" selection-start-line="470" selection-end-line="470" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <marker date="1633691008486" expanded="true" signature="8117:9142" ph="..." />
+            <marker date="1633691008486" expanded="true" signature="21161:21166" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="321" column="57" selection-start-line="321" selection-start-column="41" selection-end-line="321" selection-end-column="57" />
+        <state relative-caret-position="355">
+          <caret line="262" column="25" selection-start-line="262" selection-start-column="19" selection-end-line="262" selection-end-column="25" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>

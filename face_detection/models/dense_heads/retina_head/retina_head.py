@@ -236,7 +236,7 @@ class MultiBoxLoss(nn.Module):
                 shape: [batch_size,num_objs,5] (last idx is the label).
         """
         gt_nums = img_metas['gt_num']
-        resized_shape = img_metas['resized_shape']
+        img_shape = img_metas['img_shape']
         loc_data, conf_data, landm_data = predictions
         priors = priors
         num = loc_data.size(0)
@@ -247,12 +247,12 @@ class MultiBoxLoss(nn.Module):
         landm_t = torch.Tensor(num, num_priors, 10)
         conf_t = torch.LongTensor(num, num_priors)
         for idx in range(num):
-            img_width = resized_shape[idx][1]
-            img_height = resized_shape[idx][0]
+            img_width = img_shape[idx][1]
+            img_height = img_shape[idx][0]
             gt_num = gt_nums[idx]
-            truths = gt_bboxes[idx][:gt_num]
-            labels = gt_labels[idx][:gt_num]
-            landms = gt_landmarks[idx][:gt_num]
+            truths = gt_bboxes[idx][:gt_num].detach()
+            labels = gt_labels[idx][:gt_num].detach()
+            landms = gt_landmarks[idx][:gt_num].detach()
 
             truths[:, 0::2] /= img_width
             truths[:, 1::2] /= img_height
@@ -349,8 +349,8 @@ class RetinaFace(nn.Module):
                                neg_pos=7,
                                neg_overlap=0.35,
                                encode_target=False),
-                 test_cfg=dict(conf_threshold=0.1,
-                               nms_threshold=0.4)
+                 test_cfg=dict(conf_threshold=0.6,
+                               nms_threshold=0.6)
                  ):
         """
         :param cfg:  Network related settings.
@@ -517,7 +517,9 @@ class RetinaFace(nn.Module):
             dets[:, 1:4:2] = dets[:, 1:4:2] / scale_factor[1]
             landms[:, 0::2] = landms[:, 0::2] / scale_factor[0]
             landms[:, 1::2] = landms[:, 1::2] / scale_factor[1]
-            return dict(bboxes=dets[:4], landmarks=landms, scores=scores)
+            return dict(bboxes=dets[:, :4],
+                        landmarks=landms,
+                        score=scores)
 
 
 

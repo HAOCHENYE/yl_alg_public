@@ -86,9 +86,6 @@ data = dict(
 
 evaluation = dict(interval=100, metric='bbox', classwise=True)
 
-
-
-# optimizer = dict(type='SGD', lr=0.1, momentum=0.937, weight_decay=0.0005)
 optimizer = dict(type='AdamW', lr=0.001)
 optimizer_config = dict(grad_clip=None)
 lr_config = dict(
@@ -108,13 +105,12 @@ log_config = dict(
     hooks=[dict(type='TextLoggerHook'),
            dict(type='TensorboardLoggerHook')])
 
-
 device_ids = range(0, 2)
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 
-work_dir = '../face_detection/work_dirs/retina_face_0930'
-load_from = '../face_detection/work_dirs/retina_face_0930/latest.pth'
+work_dir = './face_detection/work_dirs/retina_face_10_08'
+load_from = './face_detection/work_dirs/retina_face_0930/latest.pth'
 resume_from = None
 # resume_from = None
 workflow = [('train', 1)]

@@ -72,6 +72,7 @@ if __name__ == "__main__":
         data['img'] = data['img'].unsqueeze(dim=0)
         results = detector.forward_test(**data, demo=True)
         detector.draw_bboxes(saved_img, results["bboxes"], results["score"])
+        detector.draw_landmarks(saved_img, results["landmarks"])
         mmcv.imwrite(saved_img, out_path)
 
 

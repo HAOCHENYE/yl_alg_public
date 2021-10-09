@@ -29,6 +29,10 @@ model = dict(
 train_pipline = [
             dict(type='LoadImageFromFile'),
             dict(type='LoadAnnotations', with_bbox=True),
+            # dict(type='RandomFlip', flip_ratio=0.5, flip_bboxes=True, flip_landmarks=True),
+            dict(type='RandomCrop', crop_size=(640, 640), crop_landmarks=True),
+            dict(type='ColorJitter'),
+            dict(type='LoadAnnotations', with_bbox=True),
             dict(type="ResizeImage", img_scale=(640, 640), pad_val=127.5),
             dict(type="ResizeBboxes", bbox_clip_border=False),
             dict(type="ResizeLandMarks", bbox_clip_border=False),
@@ -86,9 +90,6 @@ data = dict(
 
 evaluation = dict(interval=100, metric='bbox', classwise=True)
 
-
-
-# optimizer = dict(type='SGD', lr=0.1, momentum=0.937, weight_decay=0.0005)
 optimizer = dict(type='AdamW', lr=0.001)
 optimizer_config = dict(grad_clip=None)
 lr_config = dict(
@@ -108,13 +109,12 @@ log_config = dict(
     hooks=[dict(type='TextLoggerHook'),
            dict(type='TensorboardLoggerHook')])
 
-
 device_ids = range(0, 2)
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 
-work_dir = '../face_detection/work_dirs/retina_face_0930'
-load_from = '../face_detection/work_dirs/retina_face_0930/latest.pth'
+work_dir = './face_detection/work_dirs/retinaface_colorjitter_crop_admaw'
+load_from = None
 resume_from = None
 # resume_from = None
 workflow = [('train', 1)]

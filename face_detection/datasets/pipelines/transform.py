@@ -30,6 +30,14 @@ class ResizeBboxes:
             bboxes[:, 1::2] = np.clip(bboxes[:, 1::2], 0, img_shape[0])
         results["gt_bboxes"] = bboxes
 
+        # import cv2
+        # img = results['img'].copy()
+        # for box in bboxes:
+        #     x1, y1, x2, y2 = [int(i) for i in box]
+        #     cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255))
+        # cv2.imwrite("1.jpg", img)
+
+
     def __call__(self, results):
         assert "gt_bboxes" in results
         assert "scale_factor" in results
