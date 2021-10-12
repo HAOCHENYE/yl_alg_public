@@ -19,7 +19,7 @@ def build_train_dataloader(dataset,
     batch_size = get_default(train_cfg, "batch_size", 2)
     # TODO 优化batchsampler实例化的方式
     batch_sampler_cfg = get_default(train_cfg, "batch_sampler_cfg",
-                                    dict(type="YoloBatchSampler", drop_last=False, input_dimension=640))
+                                    dict(type="YoloBatchSampler", drop_last=False, input_dimension=(640, 640)))
     num_workers = get_default(train_cfg, "num_workers", 2)
 
     rank, world_size = get_dist_info()

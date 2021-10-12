@@ -27,17 +27,20 @@ class BaseModels(BaseModule):
         return NotImplemented
 
     @staticmethod
-    def normalize(data):
-        img = data['img']
-        img_norm_cfg = data['img_metas']['img_norm_cfg']
-        std = img_norm_cfg['std'][0]
-        mean = img_norm_cfg['mean'][0]
+    def normalize(img, img_metas):
+        img_norm_cfg = img_metas['img_norm_cfg']
+        std = img_norm_cfg['std']
+        mean = img_norm_cfg['mean']
+        # for batch data
+        if len(std.shape) != 1:
+            std = std[0]
+            mean = mean[0]
         if img.dtype != torch.uint8:
             return TypeError, "img.dtype must be uint when normalized in detector"
-        img = img.float()
+        img = img.float().permute(0, 2, 3, 1)
         img = (img - std) / mean
-        data['img'] = img
-        return data
+        img = img.permute(0, 3, 1, 2)
+        return img
 
     def _parse_losses(self, losses):
         """Parse the raw outputs (losses) of the network.

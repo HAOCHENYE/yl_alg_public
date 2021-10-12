@@ -5,6 +5,7 @@ from builder import build_head
 from builder import build_neck
 import cv2
 
+
 class SingleStageDetector(BaseModels):
     def __init__(self,
                  backbone,
@@ -18,6 +19,7 @@ class SingleStageDetector(BaseModels):
         self.neck = build_neck(neck)
 
     def forward_train(self, img, img_metas, **kwargs):
+        img = self.normalize(img, img_metas)
         feat = self.backbone(img)
         if self.neck:
             feat = self.neck(feat)
@@ -25,7 +27,7 @@ class SingleStageDetector(BaseModels):
         return losses
 
     def forward_test(self, img, img_metas, demo=False, **kwargs):
-        # TODO 整合normalize位置
+        img = self.normalize(img, img_metas)
         feat = self.backbone(img)
         if self.neck:
             feat = self.neck(feat)
@@ -33,7 +35,6 @@ class SingleStageDetector(BaseModels):
         return bbox_results
 
     def train_step(self, data, optimizer):
-        self.normalize(data)
         losses = self.forward_train(**data)
         outputs = self._get_runner_input(data, losses)
 
@@ -56,7 +57,7 @@ class SingleStageDetector(BaseModels):
     def draw_bboxes(self, img, bboxes, score):
         for i, box in enumerate(bboxes):
             x1, y1, x2, y2 = [int(i) for i in box]
-            cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255))
+            cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255), 2)
             cv2.putText(img, "{:.4f}".format(float(score[i])), (x1, y1), cv2.FONT_HERSHEY_DUPLEX, 0.5, (0, 0, 255))
 
     def draw_landmarks(self, img, landmarks):
@@ -64,7 +65,7 @@ class SingleStageDetector(BaseModels):
             landmark = landmark.reshape(-1, 2)
             for point in landmark:
                 x1, y1 = [int(i) for i in point]
-                cv2.rectangle(img, (x1, y1), (x1+1, y1+1), (0, 0, 255))
+                cv2.rectangle(img, (x1, y1), (x1+1, y1+1), (0, 0, 255), 2)
 
     @abstractmethod
     def export_onnx(self, img):

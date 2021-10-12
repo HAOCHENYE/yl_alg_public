@@ -30,7 +30,7 @@ train_pipline = [
             dict(type='LoadImageFromFile'),
             dict(type='LoadAnnotations', with_bbox=True),
             dict(type='RandomFlip', flip_ratio=0.5, flip_bboxes=True, flip_landmarks=True),
-            dict(type='RandomCrop', crop_size=(640, 640), crop_landmarks=True),
+            dict(type='RandomCrop', crop_size=(0.3, 0.3), crop_type='relative_range',crop_landmarks=True),
             dict(type='ColorJitter'),
             dict(type="ResizeImage", img_scale=(640, 640), pad_val=127.5),
             dict(type="ResizeBboxes", bbox_clip_border=False),
@@ -47,7 +47,7 @@ train_pipline = [
 
 val_pipline = [
             dict(type='LoadImageFromFile'),
-            # dict(type="ResizeImage", img_scale=(800, 1333), pad_val=127.5, keep_ratio=False),
+            # dict(type="ResizeImage", img_scale=(1200, 1200), pad_val=127.5, keep_ratio=False),
             dict(
                 type='Normalize',
                 mean=127.5,
@@ -108,13 +108,15 @@ log_config = dict(
     hooks=[dict(type='TextLoggerHook'),
            dict(type='TensorboardLoggerHook')])
 
+custom_hooks = [dict(type='SyncRandomSizeHook')]
+
 device_ids = range(0, 2)
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 
-work_dir = '../face_detection/work_dirs/retinaface_colorjitter_crop_flip_admaw'
+work_dir = './face_detection/work_dirs/retinaface_aug_crop_range'
 load_from = None
-resume_from = None
+resume_from = './face_detection/work_dirs/retinaface_aug_crop_range/epoch_65.pth'
 # resume_from = None
 workflow = [('train', 1)]
 gpu_ids = range(0, 2)

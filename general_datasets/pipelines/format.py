@@ -37,7 +37,7 @@ class Formatting(object):
                  collect_key=[],
                  meta_keys=('filename', 'ori_filename', 'ori_shape',
                             'img_shape', 'pad_shape', 'scale_factor',
-                            'img_norm_cfg', 'resized_shape')
+                            'img_norm_cfg')
                  ):
 
         self.pad_key = pad_cfg["key"]
@@ -61,7 +61,7 @@ class Formatting(object):
         """
         img = results['img']
         results.setdefault('pad_shape', img.shape)
-        results.setdefault('scale_factor', 1.0)
+        results.setdefault('scale_factor', np.array((1.0, 1.0)))
         num_channels = 1 if len(img.shape) < 3 else img.shape[2]
         results.setdefault(
             'img_norm_cfg',
@@ -72,6 +72,22 @@ class Formatting(object):
         return results
 
     def __call__(self, results):
+        # import cv2
+        # saved_img = results['img'].copy()
+        # gt_bboxes = results['gt_bboxes']
+        # for box in gt_bboxes:
+        #     x1, y1, x2, y2 = [int(x) for x in box]
+        #     cv2.rectangle(saved_img, (x1, y1), (x2, y2), (255, 255, 255), 2)
+        #
+        # for landmark in results['gt_landmarks']:
+        #     landmark = landmark.reshape(-1, 2)
+        #     for point in landmark:
+        #         x1, y1 = [int(i) for i in point]
+        #         cv2.rectangle(saved_img, (x1, y1), (x1+1, y1+1), (255, 255, 255), 2)
+        #
+        # import time
+        # cv2.imwrite(f'img{time.time()}.jpg', saved_img)
+
         for key in results["img_fields"]:
             img = results[key]
             if len(img.shape) < 3:
@@ -98,7 +114,10 @@ class Formatting(object):
         if self.pad_key and self.pad_num:
             meta_dict['gt_num'] = results['gt_num']
         for key in self.meta_keys:
-            meta_dict[key] = results[key]
+            value = results[key]
+            if isinstance(value, np.ndarray):
+                value = torch.from_numpy(value)
+            meta_dict[key] = value
 
         data = {}
         for key in self.collect_key:

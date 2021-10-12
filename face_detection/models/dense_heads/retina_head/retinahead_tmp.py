@@ -10,6 +10,19 @@ from builder import HEAD
 import numpy as np
 
 
+def conv_bn(inp, oup, stride = 1, leaky = 0):
+    return nn.Sequential(
+        nn.Conv2d(inp, oup, 3, stride, 1, bias=False),
+        nn.BatchNorm2d(oup),
+        nn.LeakyReLU(negative_slope=leaky, inplace=True)
+    )
+
+def conv_bn_no_relu(inp, oup, stride):
+    return nn.Sequential(
+        nn.Conv2d(inp, oup, 3, stride, 1, bias=False),
+        nn.BatchNorm2d(oup),
+    )
+
 class PriorBox(object):
     def __init__(self, cfg, phase='train'):
         super(PriorBox, self).__init__()
@@ -28,138 +41,93 @@ class PriorBox(object):
                               ceil(self.image_size[1] / step)] for step in self.steps]
 
     def forward(self):
-        anchors1 = []
-        for k, f in enumerate(self.feature_maps):
-            x = torch.arange(f[1])
-            y = torch.arange(f[0])
-            xx, yy = torch.meshgrid(x, y)
-            xx = xx.permute(1, 0)
-            yy = yy.permute(1, 0)
-
-            cxx = (xx.to(self.image_size.device) + 0.5) * self.steps[k] / self.image_size[1]
-            cyy = (yy.to(self.image_size.device) + 0.5) * self.steps[k] / self.image_size[0]
-            s_kxx = torch.full(f, self.min_sizes[k][0] / self.image_size[1],
-                               device=self.image_size.device)
-            s_kyy = torch.full(f, self.min_sizes[k][0] / self.image_size[0],
-                               device=self.image_size.device)
-
-            s_kxx1 = torch.full(f, self.min_sizes[k][1] / self.image_size[1],
-                                device=self.image_size.device)
-            s_kyy1 = torch.full(f, self.min_sizes[k][1] / self.image_size[0],
-                                device=self.image_size.device)
-
-            cxx = cxx.view(f[0], f[1], 1)
-            cyy = cyy.view(f[0], f[1], 1)
-            s_kxx = s_kxx.view(f[0], f[1], 1)
-            s_kyy = s_kyy.view(f[0], f[1], 1)
-            s_kxx1 = s_kxx1.view(f[0], f[1], 1)
-            s_kyy1 = s_kyy1.view(f[0], f[1], 1)
-            anchor_tmp = torch.cat([cxx, cyy, s_kxx, s_kyy, cxx, cyy, s_kxx1, s_kyy1], axis=2).view(-1, 4)
-            anchors1.append(anchor_tmp)
-        res = torch.cat(anchors1, axis=0)
-        if self.clip:
-            res.clamp_(max=1, min=0)
-        return res
-
-        # anchors = []
+        # anchors1 = []
         # for k, f in enumerate(self.feature_maps):
-        #     min_sizes = self.min_sizes[k]
-        #     for i, j in product(range(f[0]), range(f[1])):
-        #         for min_size in min_sizes:
-        #             s_kx = min_size / self.image_size[1]
-        #             s_ky = min_size / self.image_size[0]
-        #             dense_cx = [x * self.steps[k] / self.image_size[1]
-        #                         for x in [j + 0.5]]
-        #             dense_cy = [y * self.steps[k] / self.image_size[0]
-        #                         for y in [i + 0.5]]
-        #             for cy, cx in product(dense_cy, dense_cx):
-        #                 anchors += [cx, cy, s_kx, s_ky]
+        #     x = torch.arange(f[1])
+        #     y = torch.arange(f[0])
+        #     xx, yy = torch.meshgrid(x, y)
+        #     xx = xx.permute(1, 0)
+        #     yy = yy.permute(1, 0)
         #
-        # # back to torch land
-        # output = torch.Tensor(anchors).view(-1, 4)
+        #     cxx = (xx.to(self.image_size.device) + 0.5) * self.steps[k] / self.image_size[1]
+        #     cyy = (yy.to(self.image_size.device) + 0.5) * self.steps[k] / self.image_size[0]
+        #     s_kxx = torch.full(f, self.min_sizes[k][0] / self.image_size[1],
+        #                        device=self.image_size.device)
+        #     s_kyy = torch.full(f, self.min_sizes[k][0] / self.image_size[0],
+        #                        device=self.image_size.device)
+        #
+        #     s_kxx1 = torch.full(f, self.min_sizes[k][1] / self.image_size[1],
+        #                         device=self.image_size.device)
+        #     s_kyy1 = torch.full(f, self.min_sizes[k][1] / self.image_size[0],
+        #                         device=self.image_size.device)
+        #
+        #     cxx = cxx.view(f[0], f[1], 1)
+        #     cyy = cyy.view(f[0], f[1], 1)
+        #     s_kxx = s_kxx.view(f[0], f[1], 1)
+        #     s_kyy = s_kyy.view(f[0], f[1], 1)
+        #     s_kxx1 = s_kxx1.view(f[0], f[1], 1)
+        #     s_kyy1 = s_kyy1.view(f[0], f[1], 1)
+        #     anchor_tmp = torch.cat([cxx, cyy, s_kxx, s_kyy, cxx, cyy, s_kxx1, s_kyy1], axis=2).view(-1, 4)
+        #     anchors1.append(anchor_tmp)
+        # res = torch.cat(anchors1, axis=0)
         # if self.clip:
-        #     output.clamp_(max=1, min=0)
-        # return output
+        #     res.clamp_(max=1, min=0)
+        # return res
+
+        anchors = []
+        for k, f in enumerate(self.feature_maps):
+            min_sizes = self.min_sizes[k]
+            for i, j in product(range(f[0]), range(f[1])):
+                for min_size in min_sizes:
+                    s_kx = min_size / self.image_size[1]
+                    s_ky = min_size / self.image_size[0]
+                    dense_cx = [x * self.steps[k] / self.image_size[1]
+                                for x in [j + 0.5]]
+                    dense_cy = [y * self.steps[k] / self.image_size[0]
+                                for y in [i + 0.5]]
+                    for cy, cx in product(dense_cy, dense_cx):
+                        anchors += [cx, cy, s_kx, s_ky]
+
+        # back to torch land
+        output = torch.Tensor(anchors).view(-1, 4)
+        if self.clip:
+            output.clamp_(max=1, min=0)
+        return output
 
 
 class SSH(nn.Module):
-    def __init__(self, in_channel, out_channel, conv_cfg=dict(type=None)):
+    def __init__(self, in_channel, out_channel):
         super(SSH, self).__init__()
         assert out_channel % 4 == 0
-        self.conv3x3 = ConvModule(
-            in_channel,
-            out_channel // 2,
-            kernel_size=3,
-            padding=1,
-            stride=1,
-            act_cfg=None,
-            norm_cfg=dict(type="BN"),
-            conv_cfg=conv_cfg)
+        leaky = 0
+        if (out_channel <= 64):
+            leaky = 0.1
+        self.conv3X3 = conv_bn_no_relu(in_channel, out_channel//2, stride=1)
 
-        self.conv5x5_1 = ConvModule(
-            in_channel,
-            out_channel // 4,
-            kernel_size=5,
-            padding=2,
-            stride=1,
-            norm_cfg=dict(type="BN"))
+        self.conv5X5_1 = conv_bn(in_channel, out_channel//4, stride=1, leaky = leaky)
+        self.conv5X5_2 = conv_bn_no_relu(out_channel//4, out_channel//4, stride=1)
 
-        self.conv5x5_2 = ConvModule(
-            out_channel // 4,
-            out_channel // 4,
-            kernel_size=5,
-            padding=2,
-            stride=1,
-            norm_cfg=dict(type="BN"))
-
-        self.conv7x7_1 = ConvModule(
-            out_channel // 4,
-            out_channel // 4,
-            kernel_size=7,
-            padding=3,
-            stride=1,
-            norm_cfg=dict(type="BN"))
-
-        self.conv7x7_2 = ConvModule(
-            out_channel // 4,
-            out_channel // 4,
-            kernel_size=7,
-            padding=3,
-            stride=1,
-            act_cfg=None,
-            norm_cfg=dict(type="BN"))
+        self.conv7X7_2 = conv_bn(out_channel//4, out_channel//4, stride=1, leaky = leaky)
+        self.conv7x7_3 = conv_bn_no_relu(out_channel//4, out_channel//4, stride=1)
 
     def forward(self, input):
-        conv3x3 = self.conv3x3(input)
+        conv3X3 = self.conv3X3(input)
 
-        conv5x5_1 = self.conv5x5_1(input)
-        conv5x5 = self.conv5x5_2(conv5x5_1)
+        conv5X5_1 = self.conv5X5_1(input)
+        conv5X5 = self.conv5X5_2(conv5X5_1)
 
-        conv7x7_2 = self.conv7x7_1(conv5x5_1)
-        conv7x7 = self.conv7x7_2(conv7x7_2)
+        conv7X7_2 = self.conv7X7_2(conv5X5_1)
+        conv7X7 = self.conv7x7_3(conv7X7_2)
 
-        out = torch.cat([conv3x3, conv5x5, conv7x7], dim=1)
+        out = torch.cat([conv3X3, conv5X5, conv7X7], dim=1)
         out = F.relu(out)
         return out
 
-
 class ClassHead(nn.Module):
-    def __init__(
-            self,
-            inchannels=512,
-            num_anchors=3,
-            conv_cfg=dict(
-            type=None)):
+    def __init__(self, inchannels=512, num_anchors=3):
         super(ClassHead, self).__init__()
         self.num_anchors = num_anchors
-        self.conv1x1 = ConvModule(
-            in_channels=inchannels,
-            out_channels=num_anchors * 2,
-            kernel_size=1,
-            stride=1,
-            padding=0,
-            act_cfg=None,
-            conv_cfg=conv_cfg)
+        self.conv1x1 = nn.Conv2d(inchannels, self.num_anchors * 2, kernel_size=(1, 1), stride=1, padding=0)
 
     def forward(self, x):
         out = self.conv1x1(x)
@@ -169,21 +137,9 @@ class ClassHead(nn.Module):
 
 
 class BboxHead(nn.Module):
-    def __init__(
-            self,
-            inchannels=512,
-            num_anchors=3,
-            conv_cfg=dict(
-            type=None)):
+    def __init__(self, inchannels=512, num_anchors=3):
         super(BboxHead, self).__init__()
-        self.conv1x1 = ConvModule(
-            in_channels=inchannels,
-            out_channels=num_anchors * 4,
-            kernel_size=1,
-            stride=1,
-            padding=0,
-            act_cfg=None,
-            conv_cfg=conv_cfg)
+        self.conv1x1 = nn.Conv2d(inchannels, num_anchors * 4, kernel_size=(1, 1), stride=1, padding=0)
 
     def forward(self, x):
         out = self.conv1x1(x)
@@ -193,17 +149,9 @@ class BboxHead(nn.Module):
 
 
 class LandmarkHead(nn.Module):
-    def __init__(self, inchannels=512, num_anchors=3, conv_cfg=dict(
-            type=None)):
+    def __init__(self, inchannels=512, num_anchors=3):
         super(LandmarkHead, self).__init__()
-        self.conv1x1 = ConvModule(
-            in_channels=inchannels,
-            out_channels=num_anchors * 10,
-            kernel_size=1,
-            stride=1,
-            padding=0,
-            act_cfg=None,
-            conv_cfg=conv_cfg)
+        self.conv1x1 = nn.Conv2d(inchannels, num_anchors * 10, kernel_size=(1, 1), stride=1, padding=0)
 
     def forward(self, x):
         out = self.conv1x1(x)
@@ -393,7 +341,8 @@ class RetinaFace(nn.Module):
                                neg_overlap=0.35,
                                encode_target=False),
                  test_cfg=dict(conf_threshold=0.6,
-                               nms_threshold=0.6)
+                               nms_threshold=0.6),
+                 pretrained=None
                  ):
         """
         :param cfg:  Network related settings.
@@ -405,82 +354,75 @@ class RetinaFace(nn.Module):
         # self.register_buffer("priors", priors)
         self.fpn_num = fpn_num
         self.test_cfg = test_cfg
-        self.SSHHead = self._make_ssh_layers(
-            fpn_num=fpn_num, in_channels=in_channels, conv_cfg=conv_cfg)
+        self.ssh1 = SSH(in_channels, in_channels)
+        self.ssh2 = SSH(in_channels, in_channels)
+        self.ssh3 = SSH(in_channels, in_channels)
         self.total_loss = MultiBoxLoss(**loss_cfg)
         self.ClassHead = self._make_class_head(
-            fpn_num=fpn_num, inchannels=in_channels, conv_cfg=conv_cfg)
+            fpn_num=fpn_num, inchannels=in_channels)
         self.BboxHead = self._make_bbox_head(
-            fpn_num=fpn_num, inchannels=in_channels, conv_cfg=conv_cfg)
+            fpn_num=fpn_num, inchannels=in_channels)
         self.LandmarkHead = self._make_landmark_head(
-            fpn_num=fpn_num, inchannels=in_channels, conv_cfg=conv_cfg)
+            fpn_num=fpn_num, inchannels=in_channels)
 
         with torch.no_grad():
             self.prior_box.image_size = torch.Tensor(self.prior_box.image_size)
             self.prior = self.prior_box.get_feature_maps()
             self.prior = self.prior_box.forward().cuda()
+        self.load_weights(pretrained)
 
-    def _make_class_head(
-            self,
-            fpn_num,
-            inchannels=64,
-            anchor_num=2,
-            conv_cfg=dict(
-            type=None)):
+    def load_weights(self, pretrained):
+        pretrained_weight = torch.load(pretrained)
+        valid_weights = {}
+        for key, value in pretrained_weight.items():
+            if key.startswith('ssh1'):
+                valid_weights[key] = value
+            if key.startswith('ssh2'):
+                valid_weights[key] = value
+            if key.startswith('ssh3'):
+                valid_weights[key] = value
+            if key.startswith('ClassHead'):
+                valid_weights[key] = value
+            if key.startswith('BboxHead'):
+                valid_weights[key] = value
+            if key.startswith('LandmarkHead'):
+                valid_weights[key] = value
+
+        self.load_state_dict(valid_weights, strict=False)
+
+    def _make_class_head(self, fpn_num=3, inchannels=64, anchor_num=2):
         classhead = nn.ModuleList()
         for i in range(fpn_num):
-            classhead.append(ClassHead(inchannels, anchor_num, conv_cfg))
+            classhead.append(ClassHead(inchannels, anchor_num))
         return classhead
 
-    def _make_bbox_head(
-            self,
-            fpn_num,
-            inchannels=64,
-            anchor_num=2,
-            conv_cfg=dict(
-            type=None)):
+    def _make_bbox_head(self, fpn_num=3, inchannels=64, anchor_num=2):
         bboxhead = nn.ModuleList()
         for i in range(fpn_num):
-            bboxhead.append(BboxHead(inchannels, anchor_num, conv_cfg))
+            bboxhead.append(BboxHead(inchannels, anchor_num))
         return bboxhead
 
-    def _make_landmark_head(
-            self,
-            fpn_num,
-            inchannels=64,
-            anchor_num=2,
-            conv_cfg=dict(
-            type=None)):
+    def _make_landmark_head(self, fpn_num=3, inchannels=64, anchor_num=2):
         landmarkhead = nn.ModuleList()
         for i in range(fpn_num):
-            landmarkhead.append(LandmarkHead(inchannels, anchor_num, conv_cfg))
+            landmarkhead.append(LandmarkHead(inchannels, anchor_num))
         return landmarkhead
 
-    def _make_ssh_layers(self, fpn_num, in_channels, conv_cfg):
-        ssh_layers = nn.ModuleList()
-        for i in range(fpn_num):
-            ssh_layers.append(SSH(in_channels, in_channels, conv_cfg))
-        return ssh_layers
+    def forward(self, inputs):
+        feature1 = self.ssh1(inputs[0])
+        feature2 = self.ssh2(inputs[1])
+        feature3 = self.ssh3(inputs[2])
 
-    def forward_single(self, feat, level):
-        feat = self.SSHHead[level](feat)
-        bbox_reg = self.BboxHead[level](feat)
-        logits = self.ClassHead[level](feat)
-        land_mark = self.LandmarkHead[level](feat)
-        return logits, bbox_reg, land_mark
+        features = [feature1, feature2, feature3]
 
-    def forward(self, feats):
-        assert len(feats) == self.fpn_num
+        bbox_regressions = torch.cat([self.BboxHead[i](feature) for i, feature in enumerate(features)], dim=1)
+        classifications = torch.cat([self.ClassHead[i](feature) for i, feature in enumerate(features)],dim=1)
+        ldm_regressions = torch.cat([self.LandmarkHead[i](feature) for i, feature in enumerate(features)], dim=1)
 
-        logits, bbox_reg, land_mark = multi_apply(
-            self.forward_single, feats, [
-                level for level in range(
-                    self.fpn_num)])
-        bbox_reg = torch.cat(bbox_reg, dim=1)
-        logits = torch.cat(logits, dim=1)
-        land_mark = torch.cat(land_mark, dim=1)
 
-        return bbox_reg, logits, land_mark
+        output = (bbox_regressions, classifications, ldm_regressions)
+
+        return output
 
     def loss(self,
              feats,
@@ -574,14 +516,3 @@ class RetinaFace(nn.Module):
             return dict(bboxes=dets[:, :4],
                         landmarks=landms,
                         score=scores)
-
-
-
-
-
-
-
-
-
-
-

@@ -1,8 +1,8 @@
 # fp16 = dict(loss_scale=512.)
 dataset_type = 'WiderCocoDataset'
 data_root = '/usr/videodate/yehc/ImageDataSets/WIDERFACE/'
-base_lr = 0.01
-warmup_iters = 2000
+base_lr = 0.02
+warmup_iters = 500
 
 trainer = dict(type="FaceDetectTrain")
 model = dict(
@@ -29,8 +29,12 @@ model = dict(
 train_pipline = [
             dict(type='LoadImageFromFile'),
             dict(type='LoadAnnotations', with_bbox=True),
-            dict(type='RandomFlip', flip_ratio=0.5, flip_bboxes=True, flip_landmarks=True),
-            dict(type='RandomCrop', crop_size=(640, 640), crop_landmarks=True),
+            # dict(type='RandomFlip', flip_ratio=0.5, flip_bboxes=True, flip_landmarks=True),
+            # dict(type='RandomCrop',
+            #      crop_size=(0.3, 0.3),
+            #      crop_type='relative_range',
+            #      crop_landmarks=True,
+            #      keep_bboxes_center_in=True),
             dict(type='ColorJitter'),
             dict(type="ResizeImage", img_scale=(640, 640), pad_val=127.5),
             dict(type="ResizeBboxes", bbox_clip_border=False),
@@ -47,14 +51,15 @@ train_pipline = [
 
 val_pipline = [
             dict(type='LoadImageFromFile'),
-            # dict(type="ResizeImage", img_scale=(800, 1333), pad_val=127.5, keep_ratio=False),
+            # dict(type="ResizeImage", img_scale=(640, 640), pad_val=127.5, keep_ratio=False),
+            # dict(type='Pad', size_divisor=32, pad_val=127.5),
+            dict(type='Pad', pad_to_square=True, pad_val=127.5),
             dict(
                 type='Normalize',
                 mean=127.5,
                 std=128,
                 to_rgb=True),
-            dict(type='Formatting',
-                 collect_key=["img"]),
+            dict(type='Formatting', collect_key=["img"]),
         ]
 data = dict(
     train=dict(
@@ -87,16 +92,16 @@ data = dict(
         filter_empty_gt=True),
         )
 
-evaluation = dict(interval=100, metric='bbox', classwise=True)
+evaluation = dict(interval=1000, metric='bbox', classwise=True)
+optimizer = dict(type='SGD', lr=base_lr, momentum=0.937, weight_decay=0.0001)
+optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
 
-optimizer = dict(type='AdamW', lr=0.001)
-optimizer_config = dict(grad_clip=None)
 lr_config = dict(
-    policy='step',
+    policy='CosineAnnealing',
+    min_lr=base_lr/1000,
     warmup='linear',
-    warmup_iters=500,
-    warmup_ratio=0.01,
-    step=[90, 110])
+    warmup_iters=warmup_iters,
+    warmup_ratio=0.001)
 
 
 total_epochs = 120
@@ -108,11 +113,13 @@ log_config = dict(
     hooks=[dict(type='TextLoggerHook'),
            dict(type='TensorboardLoggerHook')])
 
+# custom_hooks = [dict(type='SyncRandomSizeHook', ratio_range=(16, 24))]
+
 device_ids = range(0, 2)
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 
-work_dir = '../face_detection/work_dirs/retinaface_colorjitter_crop_flip_admaw'
+work_dir = './face_detection/work_dirs/retinaface_singlescale_crop_filp_sgd_noflip_nocrop_ori_anchor_gen'
 load_from = None
 resume_from = None
 # resume_from = None

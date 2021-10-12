@@ -64,6 +64,10 @@ class LoadAnnotations:
         landmarks = results['ann_info']['landmarks'].copy()
         results["num_landmarks"] = len(landmarks)
         results['gt_landmarks'] = landmarks
+        # TODO only for retinaface, label starts with 0, retinaface need 1
+        labels = results['gt_labels']
+        labels[landmarks[:, 0] < 0] = -1
+        results['gt_labels'] = labels
         results['landmark_fields'].append('gt_landmarks')
         return results
 

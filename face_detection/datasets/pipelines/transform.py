@@ -7,10 +7,12 @@ class ResizeBboxes:
     def __init__(self,
                  img_scale=None,
                  bbox_clip_border=True,
+                 filter_small_bboxes=False,
                  multiscale_mode='range',
                  keep_ratio=True,
                  backend='cv2',
-                 pad_val=0):
+                 pad_val=0,
+                 bboxes_thresh=16):
 
         self.img_scale = img_scale
         self.backend = backend
@@ -19,15 +21,29 @@ class ResizeBboxes:
         # TODO: refactor the override option in Resize
         self.pad_val = pad_val
         self.bbox_clip_border = bbox_clip_border
+        self.filter_small_bboxes = filter_small_bboxes
+        self.bbox_thresh = 16
 
     def _resize_bboxes(self, results):
         bboxes = results["gt_bboxes"]
-        scale_factor = np.repeat(results['scale_factor'], 2)
+        # flag = bboxes[:, :2] > bboxes[:, 2:]
+        # if flag.any():
+        #     print(f"invalid_bboxes x1 y1: {bboxes[:, :2][flag]}, x2 y2: {bboxes[:, 2:][flag]}")
+        scale_factor = np.tile(results['scale_factor'], 2)
         bboxes = bboxes * scale_factor
         if self.bbox_clip_border:
             img_shape = results['img_shape']
             bboxes[:, 0::2] = np.clip(bboxes[:, 0::2], 0, img_shape[1])
             bboxes[:, 1::2] = np.clip(bboxes[:, 1::2], 0, img_shape[0])
+
+        if self.filter_small_bboxes:
+            img_shape = results['img_shape']
+            h, w = img_shape[:2]
+            area = (bboxes[:, 2] - bboxes[:, 0]) * (bboxes[:, 3] - bboxes[:, 1])
+            valid_index = area > self.bbox_thresh ** 2
+            bboxes = bboxes[valid_index]
+            # TODO sync with landmark
+
         results["gt_bboxes"] = bboxes
 
         # import cv2

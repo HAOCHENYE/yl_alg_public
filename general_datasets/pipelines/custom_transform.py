@@ -5,7 +5,91 @@ import torch
 import copy
 import cv2
 import random
+import warnings
 
+
+@PIPELINES.register_module()
+class Pad:
+    """Pad the image & masks & segmentation map.
+
+    There are two padding modes: (1) pad to a fixed size and (2) pad to the
+    minimum size that is divisible by some number.
+    Added keys are "pad_shape", "pad_fixed_size", "pad_size_divisor",
+
+    Args:
+        size (tuple, optional): Fixed padding size.
+        size_divisor (int, optional): The divisor of padded size.
+        pad_to_square (bool): Whether to pad the image into a square.
+            Currently only used for YOLOX. Default: False.
+        pad_val (dict, optional): A dict for padding value, the default
+            value is `dict(img=0, masks=0, seg=255)`.
+    """
+
+    def __init__(self,
+                 size=None,
+                 size_divisor=None,
+                 pad_to_square=False,
+                 pad_val=dict(img=0, masks=0, seg=255)):
+        self.size = size
+        self.size_divisor = size_divisor
+        if isinstance(pad_val, float) or isinstance(pad_val, int):
+            warnings.warn(
+                'pad_val of float type is deprecated now, '
+                f'please use pad_val=dict(img={pad_val}, '
+                f'masks={pad_val}, seg=255) instead.', DeprecationWarning)
+            pad_val = dict(img=pad_val, masks=pad_val, seg=255)
+        assert isinstance(pad_val, dict)
+        self.pad_val = pad_val
+        self.pad_to_square = pad_to_square
+
+        if pad_to_square:
+            assert size is None and size_divisor is None, \
+                'The size and size_divisor must be None ' \
+                'when pad2square is True'
+        else:
+            assert size is not None or size_divisor is not None, \
+                'only one of size and size_divisor should be valid'
+            assert size is None or size_divisor is None
+
+    def _pad_img(self, results):
+        """Pad images according to ``self.size``."""
+        pad_val = self.pad_val.get('img', 0)
+        for key in results.get('img_fields', ['img']):
+            if self.pad_to_square:
+                max_size = max(results[key].shape[:2])
+                self.size = (max_size, max_size)
+            if self.size is not None:
+                padded_img = mmcv.impad(
+                    results[key], shape=self.size, pad_val=pad_val)
+            elif self.size_divisor is not None:
+                padded_img = mmcv.impad_to_multiple(
+                    results[key], self.size_divisor, pad_val=pad_val)
+            results[key] = padded_img
+        # TODO 区分padshape和imgshape
+        results['pad_shape'] = padded_img.shape
+        results['img_shape'] = torch.Tensor(padded_img.shape)
+        results['pad_fixed_size'] = self.size
+        results['pad_size_divisor'] = self.size_divisor
+
+    def __call__(self, results):
+        """Call function to pad images, masks, semantic segmentation maps.
+
+        Args:
+            results (dict): Result dict from loading pipeline.
+
+        Returns:
+            dict: Updated result dict.
+        """
+        self._pad_img(results)
+        return results
+
+    def __repr__(self):
+        repr_str = self.__class__.__name__
+        repr_str += f'(size={self.size}, '
+        repr_str += f'size_divisor={self.size_divisor}, '
+        repr_str += f'pad_to_square={self.pad_to_square}, '
+        repr_str += f'pad_val={self.pad_val})'
+        return repr_str
 
 @PIPELINES.register_module()
 class Normalize:
@@ -21,8 +105,8 @@ class Normalize:
     """
 
     def __init__(self, mean, std, to_rgb=True):
-        self.mean = np.array(mean, dtype=np.float32)
-        self.std = np.array(std, dtype=np.float32)
+        self.mean = torch.tensor(mean)
+        self.std = torch.tensor(std)
         self.to_rgb = to_rgb
 
     def __call__(self, results):
@@ -124,7 +208,9 @@ class ResizeImage:
             dict: Resized results, 'img_shape', 'pad_shape', 'scale_factor', \
                 'keep_ratio' keys are added into result dict.
         """
-
+        if 'batch_info' in results:
+            if 'size' in results['batch_info']:
+                results['scale'] = results['batch_info']['size']
         if 'scale' not in results:
             if 'scale_factor' in results:
                 img_shape = results['img'].shape[:2]
@@ -233,7 +319,15 @@ class RandomFlip:
         flipped = landmarks.copy()
         if direction == 'horizontal':
             w = img_shape[1]
+            # TODO only support wider face now, when flipped, left and right will be swapped
             flipped[..., 0::2] = w - landmarks[..., 0::2]
+            eye_tmp = flipped[..., :2].copy()
+            flipped[..., 0:2] = flipped[..., 2:4]
+            flipped[..., 2:4] = eye_tmp
+            mouth_tmp = flipped[..., 6::8].copy()
+            flipped[..., 6::8] = flipped[..., 8::10]
+            flipped[..., 8::10] = mouth_tmp
+
         elif direction == 'vertical':
             h = img_shape[0]
             flipped[..., 1::2] = h - landmarks[..., 1::2]
@@ -242,6 +336,12 @@ class RandomFlip:
             h = img_shape[0]
             flipped[..., 0::2] = w - landmarks[..., 0::2]
             flipped[..., 1::2] = h - landmarks[..., 1::2]
+            eye_tmp = flipped[..., :2].copy()
+            flipped[..., 0:2] = flipped[..., 2:4]
+            flipped[..., 2:4] = eye_tmp
+            mouth_tmp = flipped[..., 6::8].copy()
+            flipped[..., 6::8] = flipped[..., 8::10]
+            flipped[..., 8::10] = mouth_tmp
         else:
             raise ValueError(f"Invalid flipping direction '{direction}'")
         return flipped
@@ -326,8 +426,8 @@ class RandomFlip:
                 results['gt_bboxes'] = self._bbox_flip(gt_bboxes, results['img_shape'], results['flip_direction'])
 
             if self.flip_landmarks:
-                gt_bboxes = results['gt_landmarks']
-                results['gt_landmarks'] = self._landmark_flip(gt_bboxes, results['img_shape'], results['flip_direction'])
+                gt_landmarks = results['gt_landmarks']
+                results['gt_landmarks'] = self._landmark_flip(gt_landmarks, results['img_shape'], results['flip_direction'])
 
         return results
 
@@ -375,6 +475,7 @@ class RandomCrop:
                  crop_type='absolute',
                  crop_landmarks=False,
                  allow_negative_crop=False,
+                 keep_bboxes_center_in=False,
                  bbox_clip_border=True):
         self.crop_landmarks = crop_landmarks
         if crop_type not in [
@@ -391,6 +492,7 @@ class RandomCrop:
         self.crop_type = crop_type
         self.allow_negative_crop = allow_negative_crop
         self.bbox_clip_border = bbox_clip_border
+        self.keep_bboxes_center_in = keep_bboxes_center_in
         # The key correspondence from bboxes to labels and masks.
         self.bbox2label = {
             'gt_bboxes': 'gt_labels',
@@ -443,6 +545,14 @@ class RandomCrop:
                 bboxes[:, 1::2] = np.clip(bboxes[:, 1::2], 0, img_shape[0])
             valid_inds = (bboxes[:, 2] > bboxes[:, 0]) & (
                 bboxes[:, 3] > bboxes[:, 1])
+            if self.keep_bboxes_center_in:
+                bboxes_ctx = bboxes[:, 0] + bboxes[:, 2]
+                bboxes_cty = bboxes[:, 1] + bboxes[:, 3]
+                valid_center_index = (bboxes_ctx > crop_x1) & \
+                                     (bboxes_ctx < crop_x2) & \
+                                     (bboxes_cty > crop_y1) & \
+                                     (bboxes_cty < crop_y2)
+                valid_inds = valid_inds & valid_center_index
             # If the crop does not contain any gt-bbox area and
             # allow_negative_crop is False, skip this image.
             if (key == 'gt_bboxes' and not valid_inds.any()
@@ -453,15 +563,15 @@ class RandomCrop:
                 gt_landmarks = results['gt_landmarks']
                 landmark_offset = np.tile([offset_w, offset_h], 5)
                 gt_landmarks = gt_landmarks - landmark_offset
-                gt_landmarks[gt_landmarks < 0] = -1
                 gt_landmarks[:, 0::2] = np.clip(gt_landmarks[:, 0::2], 0, img_shape[1])
                 gt_landmarks[:, 1::2] = np.clip(gt_landmarks[:, 1::2], 0, img_shape[0])
-                gt_landms_sum = np.sum(gt_landmarks, axis=1)
+                # gt_landms_sum = np.sum(gt_landmarks, axis=1)
 
-                landms_valid_inds = gt_landms_sum != -10
-                if not landms_valid_inds.any():
-                    return ori_results
-                gt_landmarks = gt_landmarks[landms_valid_inds]
+                # landms_valid_inds = gt_landms_sum != -10
+                # if not landms_valid_inds.any():
+                #     return ori_results
+                # bbox和landmarks的索引需要匹配
+                gt_landmarks = gt_landmarks[valid_inds]
                 results['gt_landmarks'] = gt_landmarks
 
             results[key] = bboxes[valid_inds, :]
@@ -573,20 +683,20 @@ class ColorJitter(object):
         img = cv2.cvtColor(img, cv2.COLOR_HSV2BGR)
         results['img'] = img
 
+        # saved_img = results['img'].copy()
         # gt_bboxes = results['gt_bboxes']
         # for box in gt_bboxes:
         #     x1, y1, x2, y2 = [int(x) for x in box]
-        #     cv2.rectangle(img, (x1, y1), (x2, y2), (255, 255, 255), 2)
+        #     cv2.rectangle(saved_img, (x1, y1), (x2, y2), (255, 255, 255), 2)
         #
         # for landmark in results['gt_landmarks']:
         #     landmark = landmark.reshape(-1, 2)
         #     for point in landmark:
         #         x1, y1 = [int(i) for i in point]
-        #         cv2.rectangle(img, (x1, y1), (x1+1, y1+1), (255, 255, 255), 2)
-
+        #         cv2.rectangle(saved_img, (x1, y1), (x1+1, y1+1), (255, 255, 255), 2)
+        #
         # import time
-        # if results.get('cropped', False) and results.get('flip', False):
-        #     cv2.imwrite(f'img{time.time()}.jpg', img)
+        # cv2.imwrite(f'img{time.time()}.jpg', img)
         return results
 
 

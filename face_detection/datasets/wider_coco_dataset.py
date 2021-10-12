@@ -160,8 +160,6 @@ class WiderCocoDataset(CustomDataset):
 
         if gt_landmarks:
             gt_landmarks = np.array(gt_landmarks, dtype=np.float32)
-        else:
-            print(111)
 
         ann = dict(
             bboxes=gt_bboxes,

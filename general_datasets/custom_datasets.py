@@ -9,7 +9,6 @@ from mmcv.utils import print_log
 from terminaltables import AsciiTable
 from torch.utils.data import Dataset
 
-from mmdet.core import eval_map, eval_recalls
 from .builder import DATASETS
 from .pipelines import Compose
 from sampler import build_index_coder

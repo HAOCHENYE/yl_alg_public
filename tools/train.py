@@ -4,7 +4,7 @@ import os
 import os.path as osp
 import time
 import warnings
-
+from mmcv.runner.hooks import HOOKS
 import mmcv
 import torch
 from mmcv import Config, DictAction
@@ -15,6 +15,7 @@ from util import get_root_logger, set_random_seed
 import face_detection
 import backbone
 import plugins
+import custom_hook
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a detector')
