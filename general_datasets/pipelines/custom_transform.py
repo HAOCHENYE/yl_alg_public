@@ -537,22 +537,25 @@ class RandomCrop:
         # crop bboxes accordingly and clip to the image boundary
         for key in results.get('bbox_fields', []):
             # e.g. gt_bboxes and gt_bboxes_ignore
-            bbox_offset = np.array([offset_w, offset_h, offset_w, offset_h],
-                                   dtype=np.float32)
-            bboxes = results[key] - bbox_offset
-            if self.bbox_clip_border:
-                bboxes[:, 0::2] = np.clip(bboxes[:, 0::2], 0, img_shape[1])
-                bboxes[:, 1::2] = np.clip(bboxes[:, 1::2], 0, img_shape[0])
-            valid_inds = (bboxes[:, 2] > bboxes[:, 0]) & (
-                bboxes[:, 3] > bboxes[:, 1])
+            bboxes = results[key]
             if self.keep_bboxes_center_in:
-                bboxes_ctx = bboxes[:, 0] + bboxes[:, 2]
-                bboxes_cty = bboxes[:, 1] + bboxes[:, 3]
+                bboxes_ctx = (bboxes[:, 0] + bboxes[:, 2]) / 2
+                bboxes_cty = (bboxes[:, 1] + bboxes[:, 3]) / 2
                 valid_center_index = (bboxes_ctx > crop_x1) & \
                                      (bboxes_ctx < crop_x2) & \
                                      (bboxes_cty > crop_y1) & \
                                      (bboxes_cty < crop_y2)
-                valid_inds = valid_inds & valid_center_index
+            else:
+                valid_center_index = np.ones(bboxes.shape[0])
+
+            bbox_offset = np.array([offset_w, offset_h, offset_w, offset_h],
+                                   dtype=np.float32)
+            bboxes = bboxes - bbox_offset
+            if self.bbox_clip_border:
+                bboxes[:, 0::2] = np.clip(bboxes[:, 0::2], 0, img_shape[1])
+                bboxes[:, 1::2] = np.clip(bboxes[:, 1::2], 0, img_shape[0])
+            valid_inds = (bboxes[:, 2] > bboxes[:, 0]) & (
+                bboxes[:, 3] > bboxes[:, 1]) & valid_center_index
             # If the crop does not contain any gt-bbox area and
             # allow_negative_crop is False, skip this image.
             if (key == 'gt_bboxes' and not valid_inds.any()

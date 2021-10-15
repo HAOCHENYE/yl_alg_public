@@ -1,28 +1,42 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-import os.path as osp
-
+from .builder import build_evaluator
 import torch.distributed as dist
 from mmcv.runner import DistEvalHook as BaseDistEvalHook
 from mmcv.runner import EvalHook as BaseEvalHook
+from mmcv.utils import build_from_cfg
+from mmcv.runner.hooks import HOOKS
 from torch.nn.modules.batchnorm import _BatchNorm
+from test_api import single_gpu_test, multi_gpu_test
 
 
+@HOOKS.register_module()
 class EvalHook(BaseEvalHook):
+    def __init__(self, dataloader, evaluator, *args, **kwargs):
+        super().__init__(dataloader, *args, **kwargs)
+        self.evaluator = build_evaluator(evaluator)
+        self.cat_type = evaluator.get('cat_type', 'append')
 
     def _do_evaluate(self, runner):
         """perform evaluation and save ckpt."""
         if not self._should_evaluate(runner):
             return
 
-        from mmdet.apis import single_gpu_test
-        results = single_gpu_test(runner.model, self.dataloader, show=False)
+        results = single_gpu_test(runner.model, self.dataloader, self.cat_type)
         runner.log_buffer.output['eval_iter_num'] = len(self.dataloader)
-        key_score = self.evaluate(runner, results)
+        key_score = self.evaluator.evaluate(runner, results)
+        for key, value in key_score.items():
+            runner.log_buffer.output[key] = value
+        runner.log_buffer.ready = True
         if self.save_best:
             self._save_ckpt(runner, key_score)
 
 
+@HOOKS.register_module()
 class DistEvalHook(BaseDistEvalHook):
+    def __init__(self, dataloader, evaluator, *args, **kwargs):
+        super().__init__(dataloader, *args, **kwargs)
+        self.evaluator = build_evaluator(evaluator)
+        self.cat_type = evaluator.get('cat_type', 'append')
 
     def _do_evaluate(self, runner):
         """perform evaluation and save ckpt."""
@@ -42,20 +56,17 @@ class DistEvalHook(BaseDistEvalHook):
         if not self._should_evaluate(runner):
             return
 
-        tmpdir = self.tmpdir
-        if tmpdir is None:
-            tmpdir = osp.join(runner.work_dir, '.eval_hook')
-
-        from mmdet.apis import multi_gpu_test
         results = multi_gpu_test(
             runner.model,
             self.dataloader,
-            tmpdir=tmpdir,
-            gpu_collect=self.gpu_collect)
+            self.cat_type)
         if runner.rank == 0:
             print('\n')
             runner.log_buffer.output['eval_iter_num'] = len(self.dataloader)
-            key_score = self.evaluate(runner, results)
+            key_score = self.evaluator.evaluate(runner, results)
+            for key, value in key_score.items():
+                runner.log_buffer.output[key] = value
+            runner.log_buffer.ready = True
 
             if self.save_best:
                 self._save_ckpt(runner, key_score)

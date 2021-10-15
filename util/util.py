@@ -2,6 +2,8 @@ from functools import partial
 import random
 import torch
 import numpy as np
+import abc
+
 
 def multi_apply(func, *args, **kwargs):
     """Apply function to a list of arguments.
@@ -51,4 +53,25 @@ def set_random_seed(seed, deterministic=False):
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
 
+
+def tensor2numpy(results):
+    if isinstance(results, torch.Tensor):
+        return results.detach().cpu().numpy()
+    if isinstance(results, dict):
+        return {key: tensor2numpy(results[key]) for key in results.keys()}
+    if isinstance(results, list):
+        return [tensor2numpy(ele) for ele in results]
+    else:
+        return results
+
+
+def numpy2tensor(results):
+    if isinstance(results, np.ndarray):
+        return torch.from_numpy(results)
+    if isinstance(results, dict):
+        return {key: tensor2numpy(results[key]) for key in results.keys()}
+    if isinstance(results, list):
+        return [tensor2numpy(ele) for ele in results]
+    else:
+        return results
 

@@ -47,7 +47,7 @@
       <paths name="root@10.4.11.64:22">
         <serverdata>
           <mappings>
-            <mapping deploy="/home/video/user/yehc/home_version/yl_alg_group" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/video/user/yehc/home_version/yl_alg_group" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>

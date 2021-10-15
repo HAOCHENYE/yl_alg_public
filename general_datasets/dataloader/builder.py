@@ -60,9 +60,11 @@ def worker_init_fn(worker_id, num_workers, rank, seed):
 def build_val_dataloader(dataset,
                          batch_size=2,
                          num_workers=1,
-                         dist=False):
+                         dist=False,
+                         collate_fn=None):
+    rank, world_size = get_dist_info()
     if dist:
-        sampler = DistributedSampler(dataset, shuffle=False)
+        sampler = DistributedSampler(dataset, world_size, shuffle=False)
     else:
         sampler = SequentialSampler(dataset)
 
@@ -71,6 +73,7 @@ def build_val_dataloader(dataset,
         batch_size=batch_size,
         sampler=sampler,
         num_workers=num_workers,
-        pin_memory=False)
+        pin_memory=False,
+        collate_fn=collate_fn)
 
     return data_loader

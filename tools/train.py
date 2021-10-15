@@ -2,20 +2,18 @@
 import argparse
 import os
 import os.path as osp
-import time
 import warnings
-from mmcv.runner.hooks import HOOKS
-import mmcv
-import torch
-from mmcv import Config, DictAction
-from mmcv.runner import get_dist_info, init_dist
+import time
 
-from builder import build_trainer
+from mmcv.runner import get_dist_info
+import mmcv
+from mmcv import Config, DictAction
+from mmcv.runner import init_dist
+
+from tasks import build_trainer
 from util import get_root_logger, set_random_seed
-import face_detection
-import backbone
-import plugins
-import custom_hook
+from plugins import *
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description='Train a detector')

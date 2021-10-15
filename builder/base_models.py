@@ -7,8 +7,9 @@ import torch.distributed as dist
 
 # TODO 更新基类逻辑，方便扩展
 class BaseModels(BaseModule):
-    def __init__(self, init_cfg=None):
+    def __init__(self, init_cfg=None, fp16_enable=False):
         super().__init__(init_cfg)
+        self.fp16_enabled = fp16_enable
 
     @abstractmethod
     def train_step(self, data, optimizer):
@@ -76,3 +77,11 @@ class BaseModels(BaseModule):
             log_vars[loss_name] = loss_value.item()
 
         return loss, log_vars
+
+    def _get_runner_input(self, data, losses):
+        loss, log_vars = self._parse_losses(losses)
+
+        outputs = dict(
+            loss=loss, log_vars=log_vars, num_samples=len(data['img_metas']))
+
+        return outputs
