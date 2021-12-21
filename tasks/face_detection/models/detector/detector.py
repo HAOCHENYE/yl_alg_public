@@ -4,8 +4,7 @@ from abc import abstractmethod
 from builder import build_head
 from builder import build_neck
 import cv2
-from mmcv.runner import auto_fp16
-
+from util import auto_fp16
 
 
 class SingleStageDetector(BaseModels):

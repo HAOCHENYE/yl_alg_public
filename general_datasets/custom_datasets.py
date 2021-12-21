@@ -63,7 +63,8 @@ class CustomDataset(Dataset):
                  proposal_file=None,
                  test_mode=False,
                  filter_empty_gt=True,
-                 index_decoder_cfg=dict(type="CustomDecoder")):
+                 index_decoder_cfg=dict(type="CustomDecoder"),
+                 filter_small_img=False):
         self.ann_file = ann_file
         self.data_root = data_root
         self.img_prefix = img_prefix
@@ -95,12 +96,13 @@ class CustomDataset(Dataset):
 
         # filter images too small and containing no annotations
         if not test_mode:
-            valid_inds = self._filter_imgs()
-            self.data_infos = [self.data_infos[i] for i in valid_inds]
-            if self.proposals is not None:
-                self.proposals = [self.proposals[i] for i in valid_inds]
+            if filter_small_img:
+                valid_inds = self._filter_imgs()
+                self.data_infos = [self.data_infos[i] for i in valid_inds]
+                if self.proposals is not None:
+                    self.proposals = [self.proposals[i] for i in valid_inds]
             # set group flag for the sampler
-            self._set_group_flag()
+            # self._set_group_flag()
 
         # processing pipeline
         self.pipeline = Compose(pipeline)

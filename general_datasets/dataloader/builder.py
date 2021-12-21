@@ -4,18 +4,18 @@ import random
 from functools import partial
 import numpy as np
 from mmcv.runner import get_dist_info
-from mmcv.utils import build_from_cfg
 from torch.utils.data import DataLoader
 from torch.utils.data.sampler import RandomSampler, SequentialSampler
 from torch.utils.data import DistributedSampler
 from util import get_default
 from sampler import build_batch_sampler
-
+from sampler import InfiniteSampler
 
 def build_train_dataloader(dataset,
                            train_cfg,
                            dist=True,
-                           seed=None):
+                           seed=None,
+                           runner_type='EpochBasedRunner'):
     batch_size = get_default(train_cfg, "batch_size", 2)
     # TODO 优化batchsampler实例化的方式
     batch_sampler_cfg = get_default(train_cfg, "batch_sampler_cfg",
@@ -25,11 +25,17 @@ def build_train_dataloader(dataset,
     rank, world_size = get_dist_info()
     batch_sampler_cfg["batch_size"] = batch_size
     if not dist:
-        sampler = RandomSampler(dataset)
+        if runner_type == 'EpochBasedRunner':
+            sampler = RandomSampler(dataset)
+        else:
+            sampler = InfiniteSampler(dataset)
         # sampler = SequentialSampler(dataset)
 
     else:
-        sampler = DistributedSampler(dataset, rank=rank, seed=seed)
+        if runner_type == 'EpochBasedRunner':
+            sampler = DistributedSampler(dataset, rank=rank, seed=seed)
+        else:
+            sampler = InfiniteSampler(dataset, seed=seed, rank=rank, world_size=world_size)
 
     batch_sampler_cfg['sampler'] = sampler
     batch_sampler = build_batch_sampler(batch_sampler_cfg)

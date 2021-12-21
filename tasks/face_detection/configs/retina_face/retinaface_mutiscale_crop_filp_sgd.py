@@ -107,7 +107,7 @@ lr_config = dict(
     warmup_ratio=0.001)
 
 
-total_epochs = 300
+total_epochs = 120
 # learning policy
 
 checkpoint_config = dict(interval=1)
@@ -116,7 +116,7 @@ log_config = dict(
     hooks=[dict(type='TextLoggerHook'),
            dict(type='TensorboardLoggerHook')])
 
-custom_hooks = [dict(type='SyncRandomSizeHook', ratio_range=(16, 24))]
+custom_hooks = [dict(type='SyncRandomSizeHook', ratio_range=(10, 30))]
 evaluator = dict(type='WiderFaceEvaluator',
                  gt_path='/usr/videodate/yehc/ImageDataSets/WIDERFACE/ground_truth/')
 
@@ -125,7 +125,7 @@ dist_params = dict(backend='nccl')
 log_level = 'INFO'
 work_dir = './tasks/face_detection/work_dirs/retinaface_mutiscale_crop_filp_sgd'
 load_from = None
-resume_from = './tasks/face_detection/work_dirs/retinaface_mutiscale_crop_filp_sgd/latest.pth'
+resume_from ='./tasks/face_detection/work_dirs/retinaface_mutiscale_crop_filp_sgd/latest.pth'
 # resume_from = None
 workflow = [('train', 1)]
 gpu_ids = range(0, 2)

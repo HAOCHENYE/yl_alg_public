@@ -16,8 +16,9 @@ class WiderFaceEvaluator(object):
         self.gt_path = gt_path
 
     def evaluate(self, runner, results):
+        logger = getattr(runner, 'logger', None)
         pred = self._parse_results(results)
-        score = self._evaluation(pred, runner)
+        score = self._evaluation(pred, logger)
         return score
 
     @staticmethod
@@ -87,8 +88,7 @@ class WiderFaceEvaluator(object):
                     pred[event][img_path.rstrip('.jpg')] = bboxes
         return pred
 
-    def _evaluation(self, pred, runner, iou_thresh=0.5):
-        logger = runner.logger
+    def _evaluation(self, pred, logger, iou_thresh=0.5):
         gt_path = self.gt_path
         self._norm_score(pred)
         facebox_list, event_list, file_list, hard_gt_list, medium_gt_list, easy_gt_list = self._get_gt_boxes(gt_path)

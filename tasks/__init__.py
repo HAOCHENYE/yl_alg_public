@@ -1,7 +1,6 @@
-from mmcv.utils import Registry
 from builder import TESTER, TRAINER
 from .face_detection import *
-
+from .semantic_segmentation import *
 
 
 

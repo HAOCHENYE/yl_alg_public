@@ -1,82 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_sgd.py" line="61" mnemonic="9" />
+    <bookmark url="file://$PROJECT_DIR$/../mmdetection_pr/mmdetection_fork/mmdetection/configs/_base_/models/retinanet_r50_fpn.py" description="model = dict(&#10;    type='RetinaNet',&#10;    backbone=d..." line="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0acb8dd7-d22d-424a-9c61-c615dc0ba655" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tasks/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/configs/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_adamw.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/hook/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/hook/wider_face_evaluator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/tester.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/utils/widerface_evaluate/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/utils/widerface_evaluate/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/utils/widerface_evaluate/box_overlaps.pyx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/utils/widerface_evaluate/evaluation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/utils/widerface_evaluate/ground_truth/wider_easy_val.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/utils/widerface_evaluate/ground_truth/wider_face_val.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/utils/widerface_evaluate/ground_truth/wider_hard_val.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/utils/widerface_evaluate/ground_truth/wider_medium_val.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tasks/face_detection/utils/widerface_evaluate/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_api/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/dist_test.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/util/dist_comm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/custom_hook/optimizer/AdaBelief.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/custom_convs/conv2mm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/custom_convs/conv_fuse_func.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/custom_convs/dbb_verify.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/custom_convs/ecb_conv.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/custom_convs/grad_learn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/custom_convs/parmeter_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_multiscale_sgd_300e.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_random_affine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_random_affine_lite.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_single_scale_300e.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/retina_head_nolandmark.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/configs/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_dynamic_ssim.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_3c.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_3c_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_a1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_iter_based_runner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_new_trainer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_video_trainer_ecb.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/datasets/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/datasets/pipelines/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/datasets/pipelines/loading.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/datasets/pipelines/transform.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/datasets/seg_dataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/demo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/hook/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/hook/seg_evaluator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/models/neck/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/models/neck/zxs_neck.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/models/seghead/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/models/seghead/zxshead.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/models/segmentor/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/models/segmentor/segmentor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/models/segmentor/zxsseg.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/models/tmp_backbone/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/pytorch2onnx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/tester.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/trainer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/utils/loss.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/utils/util_func.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/zxs_video_tester.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tasks/semantic_segmentation/zxs_video_trainer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/pytorch2onnx.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/try/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/try/script_learn/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/try/script_learn/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/fp16_uils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/model_analyzer/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/util/model_analyzer/analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/yl_alg_group.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/yl_alg_group.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backbone/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backbone/general_sand_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/backbone/general_sand_net.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/builder/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/builder/base_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/base_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom_hook/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_hook/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom_hook/eval_hook.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_hook/eval_hook.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/centernet_repvgg.onnx" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/centernet_repvgg.onnx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/configs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_hook/builder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/configs/retina_face/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_hook/optimizer/ACProp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/configs/retina_face/retina_face.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retina_face.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/configs/retina_face/retina_face_10_8.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retina_face_10_8.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/configs/retina_face/retinaface_aug.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/configs/retina_face/retinaface_aug_crop_range.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_sgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_sgd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_sgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_sgd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/configs/retina_face/retinanet_mobilenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinanet_mobilenet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/configs/retina_face/retinanet_try.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_signlescale_crop_filp_ACProp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/datasets/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/datasets/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/datasets/pipelines/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/datasets/pipelines/loading.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/loading.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/datasets/pipelines/transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/transform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/datasets/wider_coco_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/datasets/wider_coco_dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/hook/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_hook/optimizer/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/dense_heads/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/dense_heads/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/retina_head.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retinahead_tmp.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/retinahead_tmp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/util_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/util_func.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/detector/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/detector/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/detector/detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/detector/detector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/detector/retinanet.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/detector/retinanet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/neck/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/neck/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/neck/retina_neck.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/neck/retina_neck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/models/neck/tmp_retina_neck.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/neck/tmp_retina_neck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/tester.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/utils/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face_detection/utils/test_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/utils/test_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_hook/multi_scale_hook.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_hook/multi_scale_hook.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom_hook/optimizer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/custom_hook/optimizer/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_datasets/custom_datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/general_datasets/custom_datasets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_datasets/dataloader/builder.py" beforeDir="false" afterPath="$PROJECT_DIR$/general_datasets/dataloader/builder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plugins/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_datasets/pipelines/format.py" beforeDir="false" afterPath="$PROJECT_DIR$/general_datasets/pipelines/format.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_datasets/pipelines/load.py" beforeDir="false" afterPath="$PROJECT_DIR$/general_datasets/pipelines/load.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/custom_convs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/custom_convs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugins/custom_convs/dbb_conv.py" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/custom_convs/dbb_conv.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sampler/sampler.py" beforeDir="false" afterPath="$PROJECT_DIR$/sampler/sampler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_sgd.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_sgd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_adamw.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_adamw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/loading.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/loading.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/transform.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/transform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/hook/wider_face_evaluator.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/hook/wider_face_evaluator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/retina_head.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/retina_head.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/util_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/util_func.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/models/detector/detector.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/detector/detector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/models/detector/retinanet.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/models/detector/retinanet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/tester.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks/face_detection/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks/face_detection/trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_api/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_api/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/train.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/util/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/util/ddp_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/ddp_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/logger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/util/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/util.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,9 +102,23 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/yl_alg_group$train_face_detector.coverage" NAME="train_face_detector Coverage Results" MODIFIED="1634177886039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
-    <SUITE FILE_PATH="coverage/yl_alg_group$test_widerface.coverage" NAME="test_widerface Coverage Results" MODIFIED="1634173518114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$test_mask.coverage" NAME="test_mask Coverage Results" MODIFIED="1636184284401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$train_seg.coverage" NAME="train_seg Coverage Results" MODIFIED="1636133806933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$conv_fuse_func.coverage" NAME="conv_fuse_func Coverage Results" MODIFIED="1638966450118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plugins/custom_convs" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$grad_learn.coverage" NAME="grad_learn Coverage Results" MODIFIED="1639028656366" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plugins/custom_convs" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$parmeter_test.coverage" NAME="parmeter_test Coverage Results" MODIFIED="1639122160312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plugins/custom_convs" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$pytest_for_grad_learn_test_clone.coverage" NAME="pytest for grad_learn.test_clone Coverage Results" MODIFIED="1639022228856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plugins/custom_convs" />
     <SUITE FILE_PATH="coverage/yl_alg_group$demo_retinaface.coverage" NAME="demo_retinaface Coverage Results" MODIFIED="1634189361249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/face_detection" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$pytorch2onnx.coverage" NAME="video_pytorch2onnx Coverage Results" MODIFIED="1635384995648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tasks/semantic_segmentation" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$demo_mask.coverage" NAME="demo_mask Coverage Results" MODIFIED="1636182323186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tasks/semantic_segmentation" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$script.coverage" NAME="script Coverage Results" MODIFIED="1635997655437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools/try/script_learn" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$ecb_conv.coverage" NAME="ecb_conv Coverage Results" MODIFIED="1638933898547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plugins/custom_convs" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$train_face_detector.coverage" NAME="train_face_detector Coverage Results" MODIFIED="1634534118731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$dbb_verify.coverage" NAME="dbb_verify Coverage Results" MODIFIED="1638965600383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plugins/custom_convs" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$video_pytorch2onnx.coverage" NAME="video_pytorch2onnx Coverage Results" MODIFIED="1636136255946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tasks/semantic_segmentation" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$test_widerface.coverage" NAME="test_widerface Coverage Results" MODIFIED="1634546488195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$try.coverage" NAME="try Coverage Results" MODIFIED="1635156946829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/yl_alg_group$conv2mm.coverage" NAME="conv2mm Coverage Results" MODIFIED="1639109903096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plugins/custom_convs" />
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="356" />
@@ -97,48 +127,55 @@
     <session id="-2027420523">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.0" value="5" />
-          <entry key="project.open.time.1" value="2" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="_bootstrap&gt;" value="1" />
           <entry key="_bootstrap_external&gt;" value="3" />
-          <entry key="py" value="654" />
+          <entry key="py" value="1252" />
+          <entry key="pyi" value="1" />
           <entry key="pyx" value="1" />
-          <entry key="sh" value="4" />
+          <entry key="sh" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Bash" value="4" />
+          <entry key="Bash" value="6" />
           <entry key="Cython" value="1" />
           <entry key="PyRemoteDebug" value="4" />
-          <entry key="Python" value="654" />
+          <entry key="Python" value="1252" />
+          <entry key="PythonStub" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="5004" />
-          <entry key="dummy" value="48" />
-          <entry key="py" value="25636" />
+          <entry key="Python Console" value="10930" />
+          <entry key="dummy" value="59" />
+          <entry key="py" value="65352" />
           <entry key="sh" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="24" />
-          <entry key="PLAIN_TEXT" value="48" />
-          <entry key="Python" value="30640" />
+          <entry key="PLAIN_TEXT" value="59" />
+          <entry key="Python" value="76282" />
         </counts>
       </usages-collector>
     </session>
@@ -146,67 +183,100 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_signlescale_crop_filp_ACProp.py">
+        <entry file="file://$PROJECT_DIR$/plugins/custom_convs/dbb_conv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2910">
-              <caret line="97" column="65" selection-start-line="97" selection-start-column="65" selection-end-line="97" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_adamw.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3750">
-              <caret line="125" column="18" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
+            <state relative-caret-position="210">
+              <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/util/ddp_model.py">
+        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/modules/batchnorm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="58" column="55" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="55" />
+            <state relative-caret-position="-18">
+              <caret line="146" column="21" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/functional.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="2249" column="4" selection-start-line="2249" selection-start-column="4" selection-end-line="2249" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/modules/conv.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3840">
+              <caret line="142" column="66" selection-start-line="142" selection-start-column="59" selection-end-line="142" selection-end-column="66" />
               <folding>
-                <element signature="e#0#65#0" expanded="true" />
+                <element signature="e#24#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retina_face_10_8.py">
+        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/mmcv/cnn/utils/fuse_conv_bn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2640">
-              <caret line="88" selection-start-line="88" selection-end-line="89" selection-end-column="39" />
+            <state relative-caret-position="450">
+              <caret line="16" column="30" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_sgd.py">
+        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/parameter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3540">
-              <caret line="118" column="28" selection-start-line="118" selection-start-column="28" selection-end-line="118" selection-end-column="28" />
+            <state relative-caret-position="90">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_sgd.py">
+        <entry file="file://$PROJECT_DIR$/plugins/custom_convs/conv2mm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3420">
-              <caret line="114" column="47" selection-end-line="130" />
+            <state relative-caret-position="3480">
+              <caret line="118" column="29" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tasks/face_detection/models/detector/detector.py">
+        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/init.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+            <state relative-caret-position="10650">
+              <caret line="359" column="4" selection-start-line="359" selection-start-column="4" selection-end-line="359" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/96861492/codecs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9300">
+              <caret line="311" selection-start-line="311" selection-end-line="311" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/modules/module.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="31170">
+              <caret line="1050" selection-start-line="1050" selection-end-line="1050" />
             </state>
           </provider>
         </entry>
@@ -222,36 +292,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>launcher</find>
-      <find>tensor</find>
-      <find>results</find>
-      <find>pickle</find>
-      <find>evaluate</find>
-      <find>distributed</find>
-      <find>build_evaluator</find>
-      <find>seed</find>
-      <find>evaluator</find>
-      <find>no_validate</find>
-      <find>no-validate</find>
-      <find>train_step</find>
-      <find>_do_evaluate</find>
-      <find>validate</find>
-      <find>logger</find>
-      <find>log_level</find>
-      <find>keep_bboxes_center_in</find>
-      <find>_evaluation</find>
-      <find>valid_inds</find>
-      <find>initial_flag</find>
-      <find>before_train_epoch</find>
-      <find>evaluation</find>
-      <find>runner</find>
-      <find>backbone</find>
-      <find>custom_hook</find>
-      <find>valid_center_index</find>
-      <find>TODO</find>
-      <find>eva</find>
-      <find>degenerated_to_sgd</find>
-      <find>base_lr</find>
+      <find>dbb_reparam</find>
+      <find>weight_fuse</find>
+      <find>self.fused_weight</find>
+      <find>conv_11_weight_buffer</find>
+      <find>weight</find>
+      <find>feat_</find>
+      <find>feat</find>
+      <find>transIII_1x1_kxk</find>
+      <find>out_groups</find>
+      <find>mid_idx</find>
+      <find>b_hat</find>
+      <find>fuse_avg_bias</find>
+      <find>groups_channels</find>
+      <find>__param_names__</find>
+      <find>try</find>
+      <find>conv1x1</find>
+      <find>fused_weight</find>
+      <find>test_group_conv_bias_fuse</find>
+      <find>conv_11kk_kk_bias_buffer</find>
+      <find>fuse_kxk_1xk_matmul</find>
+      <find>groups</find>
+      <find>conv_avg_kk</find>
+      <find>conv_11kk_kk_weight_buffer</find>
+      <find>register</find>
+      <find>conv_11kk_kk_weight_param</find>
+      <find>.data</find>
+      <find>require</find>
+      <find>param</find>
+      <find>fused_bias</find>
+      <find>running_mean</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -260,57 +330,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/face_detection/configs/retina_face/retinanet_mobilenet.py" />
-        <option value="$PROJECT_DIR$/face_detection/models/neck/tmp_retina_neck.py" />
-        <option value="$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/__init__.py" />
-        <option value="$PROJECT_DIR$/face_detection/models/neck/__init__.py" />
-        <option value="$PROJECT_DIR$/face_detection/models/neck/retina_neck.py" />
-        <option value="$PROJECT_DIR$/face_detection/demo.py" />
-        <option value="$PROJECT_DIR$/general_datasets/pipelines/format.py" />
-        <option value="$PROJECT_DIR$/test_api/__init__.py" />
-        <option value="$PROJECT_DIR$/face_detection/hook/__init__.py" />
-        <option value="$PROJECT_DIR$/face_detection/__init__.py" />
-        <option value="$PROJECT_DIR$/face_detection/utils/test_api.py" />
-        <option value="$PROJECT_DIR$/face_detection/datasets/wider_coco_dataset.py" />
-        <option value="$PROJECT_DIR$/face_detection/utils/__init__.py" />
-        <option value="$PROJECT_DIR$/face_detection/utils/widerface_evaluate/__init__.py" />
-        <option value="$PROJECT_DIR$/face_detection/configs/retina_face/retinaface_aug_crop_range.py" />
-        <option value="$PROJECT_DIR$/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_sgd.py" />
-        <option value="$PROJECT_DIR$/util/__init__.py" />
-        <option value="$PROJECT_DIR$/tools/dist_test.sh" />
-        <option value="$PROJECT_DIR$/util/util.py" />
-        <option value="$PROJECT_DIR$/face_detection/tester.py" />
-        <option value="$PROJECT_DIR$/general_datasets/dataloader/builder.py" />
-        <option value="$PROJECT_DIR$/test_api/test.py" />
-        <option value="$PROJECT_DIR$/util/ddp_model.py" />
-        <option value="$PROJECT_DIR$/face_detection/models/dense_heads/retina_head/retina_head.py" />
-        <option value="$PROJECT_DIR$/face_detection/hook/wider_face_evaluator.py" />
-        <option value="$PROJECT_DIR$/face_detection/trainer.py" />
-        <option value="$PROJECT_DIR$/face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_sgd.py" />
-        <option value="$PROJECT_DIR$/custom_hook/eval_hook.py" />
-        <option value="$PROJECT_DIR$/builder/base_models.py" />
-        <option value="$PROJECT_DIR$/face_detection/models/detector/detector.py" />
-        <option value="$PROJECT_DIR$/custom_hook/builder.py" />
-        <option value="$PROJECT_DIR$/plugins/__init__.py" />
-        <option value="$PROJECT_DIR$/tasks/face_detection/__init__.py" />
-        <option value="$PROJECT_DIR$/backbone/__init__.py" />
-        <option value="$PROJECT_DIR$/tasks/face_detection/models/detector/detector.py" />
-        <option value="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_sgd.py" />
-        <option value="$PROJECT_DIR$/tools/train.py" />
-        <option value="$PROJECT_DIR$/tools/test.py" />
-        <option value="$PROJECT_DIR$/tasks/face_detection/trainer.py" />
-        <option value="$PROJECT_DIR$/tasks/__init__.py" />
-        <option value="$PROJECT_DIR$/builder/__init__.py" />
-        <option value="$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/transform.py" />
-        <option value="$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py" />
-        <option value="$PROJECT_DIR$/custom_hook/optimizer/ACProp.py" />
-        <option value="$PROJECT_DIR$/tasks/face_detection/demo.py" />
-        <option value="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_sgd.py" />
-        <option value="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_ACProp.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/models/tmp_backbone/tmp_backbone.py" />
         <option value="$PROJECT_DIR$/custom_hook/__init__.py" />
+        <option value="$PROJECT_DIR$/custom_hook/optimizer/AdaBelief.py" />
         <option value="$PROJECT_DIR$/custom_hook/optimizer/__init__.py" />
-        <option value="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_signlescale_crop_filp_ACProp.py" />
-        <option value="$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_adamw.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_a1.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_dynamic_ssim.py" />
+        <option value="$PROJECT_DIR$/test_api/test.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/utils/loss.py" />
+        <option value="$PROJECT_DIR$/tools/try.py" />
+        <option value="$PROJECT_DIR$/general_datasets/pipelines/format.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_3c_.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_3c.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_new_tester.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/__init__.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/tester.py" />
+        <option value="$PROJECT_DIR$/util/util.py" />
+        <option value="$PROJECT_DIR$/tools/train.py" />
+        <option value="$PROJECT_DIR$/tools/multi_in_pytorch2onnx.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/models/segmentor/zxsseg.py" />
+        <option value="$PROJECT_DIR$/util/model_analyzer/analysis.py" />
+        <option value="$PROJECT_DIR$/sampler/sampler.py" />
+        <option value="$PROJECT_DIR$/custom_hook/multi_scale_hook.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_iter_based_runner.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/trainer.py" />
+        <option value="$PROJECT_DIR$/general_datasets/dataloader/builder.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/zxs_video_trainer.py" />
+        <option value="$PROJECT_DIR$/util/logger.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_new_trainer.py" />
+        <option value="$PROJECT_DIR$/tools/try/script_learn/script.py" />
+        <option value="$PROJECT_DIR$/tools/pytorch2onnx.py" />
+        <option value="$PROJECT_DIR$/plugins/custom_convs/__init__.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/models/neck/zxs_neck.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/pytorch2onnx.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/zxs_video_tester.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/hook/seg_evaluator.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/models/seghead/zxshead.py" />
+        <option value="$PROJECT_DIR$/backbone/general_sand_net.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_video_trainer_ecb.py" />
+        <option value="$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py" />
+        <option value="$PROJECT_DIR$/tasks/semantic_segmentation/datasets/pipelines/transform.py" />
+        <option value="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/retina_head.py" />
+        <option value="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/util_func.py" />
+        <option value="$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/retina_head_nolandmark.py" />
+        <option value="$PROJECT_DIR$/plugins/custom_convs/ecb_conv.py" />
+        <option value="$PROJECT_DIR$/plugins/custom_convs/conv_fuse_func.py" />
+        <option value="$PROJECT_DIR$/plugins/custom_convs/dbb_verify.py" />
+        <option value="$PROJECT_DIR$/plugins/custom_convs/grad_learn.py" />
+        <option value="$PROJECT_DIR$/plugins/custom_convs/conv2mm.py" />
+        <option value="$PROJECT_DIR$/plugins/custom_convs/parmeter_test.py" />
+        <option value="$PROJECT_DIR$/plugins/custom_convs/dbb_conv.py" />
       </list>
     </option>
   </component>
@@ -331,6 +401,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -341,48 +412,42 @@
             <path>
               <item name="yl_alg_group" type="b2602c69:ProjectViewProjectNode" />
               <item name="yl_alg_group" type="462c0819:PsiDirectoryNode" />
-              <item name="tasks" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="yl_alg_group" type="b2602c69:ProjectViewProjectNode" />
               <item name="yl_alg_group" type="462c0819:PsiDirectoryNode" />
-              <item name="tasks" type="462c0819:PsiDirectoryNode" />
-              <item name="face_detection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="yl_alg_group" type="b2602c69:ProjectViewProjectNode" />
-              <item name="yl_alg_group" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="custom_convs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/pycharm_project/yl_alg_group/face_detection/models/detector.py" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tools/test.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/plugins/custom_convs/grad_learn.py" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\pycharm_project\yl_alg_group\tasks" />
-      <recent name="E:\pycharm_project\yl_alg_group\face_detection\configs\retina_face" />
-      <recent name="E:\pycharm_project\yl_alg_group\face_detection\models" />
-      <recent name="E:\pycharm_project\yl_alg_group\face_detection\dense_head" />
-      <recent name="E:\pycharm_project\yl_alg_group\face_detection\dense_head\retina_head" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\pycharm_project\yl_alg_group\tasks\semantic_segmentation" />
       <recent name="E:\pycharm_project\yl_alg_group\tasks\face_detection\configs\retina_face" />
       <recent name="E:\pycharm_project\yl_alg_group\util" />
       <recent name="E:\pycharm_project\yl_alg_group\test_api" />
       <recent name="E:\pycharm_project\yl_alg_group\face_detection\utils" />
-      <recent name="E:\pycharm_project\yl_alg_group\face_detection\configs\retina_face" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\pycharm_project\yl_alg_group\tasks\semantic_segmentation\utils" />
+      <recent name="E:\pycharm_project\yl_alg_group\tasks\semantic_segmentation\configs\zxs_seg" />
+      <recent name="E:\pycharm_project\yl_alg_group\tasks\semantic_segmentation\datasets" />
+      <recent name="E:\pycharm_project\yl_alg_group\tasks\semantic_segmentation\datasets\pipelines" />
+      <recent name="E:\pycharm_project\yl_alg_group\tasks" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -397,7 +462,95 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.demo_retinaface">
+  <component name="RunManager" selected="Python.parmeter_test">
+    <configuration name="conv2mm" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="yl_alg_group" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plugins/custom_convs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plugins/custom_convs/conv2mm.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="conv_fuse_func" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="yl_alg_group" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plugins/custom_convs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plugins/custom_convs/conv_fuse_func.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dbb_verify" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="yl_alg_group" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plugins/custom_convs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plugins/custom_convs/dbb_verify.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="demo_mask" type="PythonConfigurationType" factoryName="Python">
+      <module name="yl_alg_group" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="sftp://root@10.4.11.64:22/root/anaconda2/envs/pytorch1.9/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tasks/semantic_segmentation" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tasks/semantic_segmentation/demo.py" />
+      <option name="PARAMETERS" value="./configs/zxs_seg/zxs_seg_video_trainer_ecb.py ./work_dirs/zxs_seg_video_trainer_ecb/latest.pth ./images ./work_dirs/zxs_seg_video_trainer_ecb/results" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="demo_retinaface" type="PythonConfigurationType" factoryName="Python">
       <module name="yl_alg_group" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -420,6 +573,72 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="grad_learn" type="PythonConfigurationType" factoryName="Python">
+      <module name="yl_alg_group" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="sftp://root@10.4.11.64:22/root/anaconda2/envs/pytorch1.9/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plugins/custom_convs" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plugins/custom_convs/grad_learn.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="parmeter_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="yl_alg_group" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plugins/custom_convs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plugins/custom_convs/parmeter_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_mask" type="PythonConfigurationType" factoryName="Python">
+      <module name="yl_alg_group" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="sftp://root@10.4.11.64:22/root/anaconda2/envs/pytorch1.9/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/test.py" />
+      <option name="PARAMETERS" value="../tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_video_trainer_ecb.py ../tasks/semantic_segmentation/work_dirs/zxs_seg_video_trainer_ecb/latest.pth" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test_widerface" type="PythonConfigurationType" factoryName="Python">
       <module name="yl_alg_group" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -427,14 +646,14 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="sftp://root@10.4.11.64:22/root/anaconda2/envs/yolov5/bin/python" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/test.py" />
-      <option name="PARAMETERS" value="../face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_sgd.py ../face_detection/work_dirs/retinaface_mutiscale_crop_filp_sgd/epoch_300.pth" />
+      <option name="PARAMETERS" value="../tasks/face_detection/configs/retina_face/retinaface_random_affine_lite.py ../tasks/face_detection/work_dirs/retinaface_random_affine_lite/latest.pth" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -449,14 +668,14 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="sftp://root@10.4.11.64:22/root/anaconda2/envs/yolov5/bin/python" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/train.py" />
-      <option name="PARAMETERS" value="../face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_sgd.py" />
+      <option name="PARAMETERS" value="../tasks/face_detection/configs/retina_face/retinaface_single_scale_300e.py" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -464,11 +683,90 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="train_seg" type="PythonConfigurationType" factoryName="Python">
+      <module name="yl_alg_group" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="sftp://root@10.4.11.64:22/root/anaconda2/envs/pytorch1.9/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/train.py" />
+      <option name="PARAMETERS" value="../tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_video_trainer_ecb.py --gpu-ids 0" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="video_pytorch2onnx" type="PythonConfigurationType" factoryName="Python">
+      <module name="yl_alg_group" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="sftp://root@10.4.11.64:22/root/anaconda2/envs/pytorch1.9/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tasks/semantic_segmentation" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tasks/semantic_segmentation/pytorch2onnx.py" />
+      <option name="PARAMETERS" value="configs/zxs_seg/zxs_seg_video_trainer_ecb.py work_dirs/zxs_seg_new_trainer/latest.pth1111 --output-file work_dirs/zxs_seg_video_trainer_ecb/latest.onnx" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest for grad_learn.test_clone" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="yl_alg_group" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plugins/custom_convs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;grad_learn.test_clone&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
+      <item itemvalue="Python.grad_learn" />
       <item itemvalue="Python.train_face_detector" />
+      <item itemvalue="Python.video_pytorch2onnx" />
       <item itemvalue="Python.demo_retinaface" />
+      <item itemvalue="Python.demo_mask" />
+      <item itemvalue="Python.test_mask" />
       <item itemvalue="Python.test_widerface" />
+      <item itemvalue="Python.train_seg" />
+      <item itemvalue="Python.conv_fuse_func" />
+      <item itemvalue="Python.parmeter_test" />
+      <item itemvalue="Python.dbb_verify" />
+      <item itemvalue="Python.conv2mm" />
+      <item itemvalue="Python tests.pytest for grad_learn.test_clone" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.parmeter_test" />
+        <item itemvalue="Python.conv2mm" />
+        <item itemvalue="Python tests.pytest for grad_learn.test_clone" />
+        <item itemvalue="Python.conv_fuse_func" />
+        <item itemvalue="Python.dbb_verify" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SshConsoleOptionsProvider">
     <option name="myEncoding" value="UTF-8" />
@@ -486,6 +784,20 @@
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="pytest_for_grad_learn_test_clone - 2021.12.09 at 11h 52m 44s.xml">
+      <configuration name="pytest for grad_learn.test_clone" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_grad_learn_test_clone - 2021.12.09 at 11h 52m 51s.xml">
+      <configuration name="pytest for grad_learn.test_clone" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_grad_learn_test_clone - 2021.12.09 at 11h 53m 49s.xml">
+      <configuration name="pytest for grad_learn.test_clone" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_grad_learn_test_clone - 2021.12.09 at 11h 57m 09s.xml">
+      <configuration name="pytest for grad_learn.test_clone" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -497,68 +809,69 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49811321" visible="true" weight="0.2196162" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49811321" visible="true" weight="0.1391258" />
       <window_info id="Structure" order="1" sideWeight="0.5018868" side_tool="true" weight="0.18550107" />
       <window_info id="Alibaba Cloud Explorer" order="2" weight="0.32995737" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32962137" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4292085" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6007463" weight="0.37346712" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="5" weight="0.42474917" />
-      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.33110368" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.84808105" weight="0.42586398" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.33110368" />
       <window_info anchor="bottom" id="Alibaba Cloud View" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3110368" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4978678" weight="0.5562988" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.15191898" side_tool="true" weight="0.28874025" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32887402" />
-      <window_info anchor="bottom" id="File Transfer" order="14" visible="true" weight="0.32887402" />
+      <window_info anchor="bottom" id="File Transfer" order="14" sideWeight="0.4978678" visible="true" weight="0.065774806" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Alibaba Function Compute" order="3" />
-      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Alibaba Function Compute" order="4" weight="0.3296" />
       <window_info anchor="right" id="Remote Host" order="5" />
       <window_info anchor="right" id="Alibaba Log Console" order="6" />
       <window_info anchor="right" id="Alibaba ROS Templates" order="7" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="8" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32995737" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="10" side_tool="true" weight="0.32995737" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49811321" visible="true" weight="0.20469083" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49811321" visible="true" weight="0.19189766" />
       <window_info id="Structure" order="1" sideWeight="0.5018868" side_tool="true" weight="0.18550107" />
       <window_info id="Alibaba Cloud Explorer" order="2" weight="0.32995737" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32962137" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.41583055" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6007463" weight="0.32107022" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="5" visible="true" weight="0.42474917" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32962137" />
+      <window_info active="true" anchor="bottom" id="Debug" order="5" sideWeight="0.84808105" visible="true" weight="0.28874025" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.33110368" />
       <window_info anchor="bottom" id="Alibaba Cloud View" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3110368" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.32962137" />
-      <window_info anchor="bottom" id="File Transfer" order="14" weight="0.32887402" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32995737" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Alibaba Function Compute" order="4" />
-      <window_info anchor="right" id="SciView" order="5" />
-      <window_info anchor="right" id="Remote Host" order="6" />
-      <window_info anchor="right" id="Alibaba Log Console" order="7" />
-      <window_info anchor="right" id="Alibaba ROS Templates" order="8" weight="0.32995737" />
-      <window_info anchor="right" id="Database" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4978678" weight="0.5562988" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.15191898" side_tool="true" visible="true" weight="0.28874025" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.32887402" />
+      <window_info anchor="bottom" id="File Transfer" order="14" sideWeight="0.4978678" weight="0.065774806" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Alibaba Function Compute" order="4" weight="0.3296" />
+      <window_info anchor="right" id="Remote Host" order="5" />
+      <window_info anchor="right" id="Alibaba Log Console" order="6" />
+      <window_info anchor="right" id="Alibaba ROS Templates" order="7" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.32995737" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="10" side_tool="true" weight="0.32995737" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,7 +895,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py</url>
-          <line>701</line>
+          <line>573</line>
           <option name="timeStamp" value="124" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -602,11 +915,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tasks/face_detection/hook/wider_face_evaluator.py</url>
-          <line>19</line>
-          <option name="timeStamp" value="223" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/tasks/face_detection/hook/wider_face_evaluator.py</url>
           <line>113</line>
           <option name="timeStamp" value="228" />
         </line-breakpoint>
@@ -617,7 +925,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tasks/face_detection/hook/wider_face_evaluator.py</url>
-          <line>87</line>
+          <line>88</line>
           <option name="timeStamp" value="234" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -631,11 +939,6 @@
           <option name="timeStamp" value="241" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test_api/test.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="245" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/runner/hooks/logger/text.py</url>
           <line>65</line>
           <option name="timeStamp" value="253" />
@@ -644,6 +947,136 @@
           <url>file://$PROJECT_DIR$/tasks/face_detection/trainer.py</url>
           <line>29</line>
           <option name="timeStamp" value="255" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/transform.py</url>
+          <line>268</line>
+          <option name="timeStamp" value="258" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/transform.py</url>
+          <line>255</line>
+          <option name="timeStamp" value="259" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/transform.py</url>
+          <line>320</line>
+          <option name="timeStamp" value="265" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/face_detection/models/detector/detector.py</url>
+          <line>33</line>
+          <option name="timeStamp" value="268" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/semantic_segmentation/models/segmentor/segmentor.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/semantic_segmentation/models/segmentor/segmentor.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="345" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/mmcv/runner/hooks/evaluation.py</url>
+          <line>265</line>
+          <option name="timeStamp" value="355" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/semantic_segmentation/datasets/pipelines/transform.py</url>
+          <line>102</line>
+          <option name="timeStamp" value="363" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/semantic_segmentation/datasets/pipelines/transform.py</url>
+          <line>96</line>
+          <option name="timeStamp" value="365" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/semantic_segmentation/models/seghead/zxshead.py</url>
+          <line>137</line>
+          <option name="timeStamp" value="367" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py</url>
+          <line>503</line>
+          <option name="timeStamp" value="386" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/semantic_segmentation/models/seghead/zxshead.py</url>
+          <line>120</line>
+          <option name="timeStamp" value="387" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/semantic_segmentation/datasets/pipelines/transform.py</url>
+          <line>76</line>
+          <option name="timeStamp" value="392" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/semantic_segmentation/trainer.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="394" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/semantic_segmentation/models/segmentor/zxsseg.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="399" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tools/try/script_learn/script.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="402" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tools/try/script_learn/script.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="404" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tools/pytorch2onnx.py</url>
+          <line>122</line>
+          <option name="timeStamp" value="479" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/semantic_segmentation/pytorch2onnx.py</url>
+          <line>124</line>
+          <option name="timeStamp" value="480" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tasks/semantic_segmentation/pytorch2onnx.py</url>
+          <line>112</line>
+          <option name="timeStamp" value="484" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plugins/custom_convs/ecb_conv.py</url>
+          <line>324</line>
+          <option name="timeStamp" value="499" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plugins/custom_convs/conv_fuse_func.py</url>
+          <line>31</line>
+          <option name="timeStamp" value="502" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plugins/custom_convs/grad_learn.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="537" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plugins/custom_convs/conv2mm.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="544" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plugins/custom_convs/conv2mm.py</url>
+          <line>101</line>
+          <option name="timeStamp" value="554" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/plugins/custom_convs/parmeter_test.py</url>
+          <line>277</line>
+          <option name="timeStamp" value="591" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -656,364 +1089,392 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/util/dist_comm.py">
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/mmcv/utils/registry.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="207" column="19" selection-start-line="207" selection-start-column="8" selection-end-line="207" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/runner/hooks/hook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/tester.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="42" column="8" lean-forward="true" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/general_datasets/dataloader/builder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="31" column="61" selection-start-line="31" selection-start-column="57" selection-end-line="31" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/runner/base_runner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="337" selection-start-line="337" selection-end-line="337" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sampler/index_decoder.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/vggnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="27" column="10" lean-forward="true" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-529011319/addict/addict.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/utils/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="489" selection-start-line="489" selection-end-line="489" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sampler/yolo_sampler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/retina_head.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="490" selection-start-line="490" selection-end-line="490" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/1432997506/logging/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="1377" selection-start-line="1377" selection-end-line="1377" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/runner/builder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/utils/logging.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/hook/wider_face_evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3487">
-          <caret line="112" column="46" lean-forward="true" selection-start-line="112" selection-start-column="46" selection-end-line="112" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-            <marker date="1634175327745" expanded="true" signature="284:289" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/runner/hooks/evaluation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-577">
-          <caret line="232" column="8" selection-start-line="232" selection-start-column="8" selection-end-line="232" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/runner/hooks/logger/text.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1715">
-          <caret line="126" column="35" lean-forward="true" selection-start-line="126" selection-start-column="35" selection-end-line="126" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/-658322555/mmcv/runner/fp16_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_api/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
-          <caret line="62" column="21" lean-forward="true" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom_hook/eval_hook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom_hook/multi_scale_hook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custom_hook/builder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/custom_convs/dbb_conv.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/custom_convs/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="23" lean-forward="true" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backbone/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="158">
+          <caret line="211" selection-start-line="211" selection-end-line="211" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/builder/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+        <state relative-caret-position="166">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/dist_train.sh">
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/mmcv/utils/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+        <state relative-caret-position="166">
+          <caret line="505" selection-start-line="505" selection-end-line="505" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/__init__.py">
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/utils/checkpoint.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        <state relative-caret-position="-909">
+          <caret line="213" column="4" selection-start-line="213" selection-start-column="4" selection-end-line="213" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/__init__.py">
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/mmcv/cnn/bricks/conv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+        <state relative-caret-position="248">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/test.py">
+    <entry file="file://$PROJECT_DIR$/tasks/semantic_segmentation/tester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="-396" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_api/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/datasets/pipelines/transform.py">
+    <entry file="file://$PROJECT_DIR$/tasks/semantic_segmentation/zxs_video_tester.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="518">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/train.py">
+    <entry file="file://$PROJECT_DIR$/backbone/general_sand_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        <state relative-caret-position="-5346">
+          <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/semantic_segmentation/zxs_video_trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1920">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/semantic_segmentation/hook/seg_evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1470">
+          <caret line="53" column="48" selection-start-line="53" selection-start-column="48" selection-end-line="53" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/face_detection/models/detector/retinanet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-144" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/semantic_segmentation/demo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1710">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/semantic_segmentation/configs/zxs_seg/zxs_seg_video_trainer_ecb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7380">
+          <caret line="246" column="104" selection-start-line="246" selection-start-column="104" selection-end-line="246" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/semantic_segmentation/models/neck/zxs_neck.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3480">
+          <caret line="119" selection-start-line="119" selection-end-line="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/face_detection/models/detector/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/semantic_segmentation/models/segmentor/zxsseg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="74" column="38" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <marker date="1635323311396" expanded="true" signature="360:365" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/semantic_segmentation/models/seghead/zxshead.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3000">
+          <caret line="105" column="49" selection-start-line="105" selection-start-column="49" selection-end-line="105" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/semantic_segmentation/datasets/pipelines/transform.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4080">
+          <caret line="139" column="76" selection-start-line="139" selection-start-column="58" selection-end-line="139" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/custom_transform.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15960">
-          <caret line="539" selection-start-line="539" selection-end-line="551" selection-end-column="52" />
+        <state relative-caret-position="13860">
+          <caret line="471" column="73" selection-start-line="471" selection-start-column="73" selection-end-line="471" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/retina_head.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12030">
+          <caret line="411" column="31" selection-start-line="411" selection-start-column="31" selection-end-line="411" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/retina_head_nolandmark.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14700">
+          <caret line="500" column="69" selection-start-line="500" selection-start-column="69" selection-end-line="500" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/semantic_segmentation/pytorch2onnx.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3600">
+          <caret line="130" column="26" selection-start-line="130" selection-start-column="26" selection-end-line="130" selection-end-column="26" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <marker date="1634208216510" expanded="true" signature="11582:13267" ph="..." />
-            <marker date="1634208216510" expanded="true" signature="25937:25942" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/custom_hook/optimizer/ACProp.py">
+    <entry file="file://$PROJECT_DIR$/tasks/face_detection/models/dense_heads/retina_head/util_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        <state relative-caret-position="3690">
+          <caret line="124" column="18" selection-start-line="124" selection-start-column="4" selection-end-line="124" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/custom_hook/__init__.py">
+    <entry file="file://$PROJECT_DIR$/general_datasets/pipelines/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/utils/data/dataloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="904" column="50" selection-start-line="904" selection-start-column="50" selection-end-line="904" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_datasets/dataloader/builder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/optim/sgd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="55" column="33" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/mmcv/cnn/bricks/norm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="71" column="38" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/mmcv/cnn/bricks/conv_module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="191" column="66" selection-start-line="191" selection-start-column="54" selection-end-line="191" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/mmcv/cnn/utils/weight_init.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-400">
+          <caret line="104" column="73" lean-forward="true" selection-start-line="103" selection-start-column="12" selection-end-line="104" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="1663" selection-start-line="1663" selection-end-line="1663" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/custom_convs/conv_fuse_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1638938073082" expanded="true" signature="155:250" ph="..." />
+            <marker date="1638938073082" expanded="true" signature="727:1119" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/autograd/grad_mode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-1620348405/torch/_C/__init__/_TensorBase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-103">
+          <caret line="1447" column="8" selection-start-line="1447" selection-start-column="8" selection-end-line="1447" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/custom_convs/grad_learn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding>
+            <marker date="1639028649054" expanded="true" signature="192:591" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/modules/container.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/custom_convs/dbb_verify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/_tensor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/custom_convs/ecb_conv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8880">
+          <caret line="303" selection-start-line="303" selection-end-line="305" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+            <marker date="1638933897732" expanded="true" signature="2693:2699" ph="..." />
+            <marker date="1638933897732" expanded="true" signature="6561:6566" ph="..." />
+            <marker date="1638933897732" expanded="true" signature="10875:11132" ph="..." />
+            <marker date="1638933897732" expanded="true" signature="11127:11132" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/custom_convs/parmeter_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2010">
+          <caret line="71" column="28" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/modules/conv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3840">
+          <caret line="142" column="66" selection-start-line="142" selection-start-column="59" selection-end-line="142" selection-end-column="66" />
+          <folding>
+            <element signature="e#24#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/mmcv/cnn/utils/fuse_conv_bn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/parameter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/custom_hook/optimizer/__init__.py">
+    <entry file="file://$PROJECT_DIR$/plugins/custom_convs/conv2mm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
+        <state relative-caret-position="3480">
+          <caret line="118" column="29" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/torch/optim/optimizer.py">
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/init.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        <state relative-caret-position="10650">
+          <caret line="359" column="4" selection-start-line="359" selection-start-column="4" selection-end-line="359" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/demo.py">
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/96861492/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9300">
+          <caret line="311" selection-start-line="311" selection-end-line="311" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/modules/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31170">
+          <caret line="1050" selection-start-line="1050" selection-end-line="1050" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/custom_convs/dbb_conv.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/trainer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="70" column="65" selection-start-line="70" selection-start-column="65" selection-end-line="70" selection-end-column="65" />
           <folding>
-            <element signature="e#1#16#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/builder/base_models.py">
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/functional.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="80">
+          <caret line="2249" column="4" selection-start-line="2249" selection-start-column="4" selection-end-line="2249" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/1170083100/879329254/torch/nn/parallel/distributed.py">
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/remote_sources/-1620348405/-76738792/torch/nn/modules/batchnorm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="389" column="13" selection-start-line="389" selection-start-column="13" selection-end-line="389" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_signlescale_crop_filp_ACProp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2910">
-          <caret line="97" column="65" selection-start-line="97" selection-start-column="65" selection-end-line="97" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_adamw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3750">
-          <caret line="125" column="18" selection-start-line="125" selection-start-column="18" selection-end-line="125" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retina_face_10_8.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2640">
-          <caret line="88" selection-start-line="88" selection-end-line="89" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_mutiscale_crop_filp_sgd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3540">
-          <caret line="118" column="28" selection-start-line="118" selection-start-column="28" selection-end-line="118" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/configs/retina_face/retinaface_singlescale_crop_filp_sgd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3420">
-          <caret line="114" column="47" selection-end-line="130" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/face_detection/models/detector/detector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/ddp_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="58" column="55" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-18">
+          <caret line="146" column="21" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="21" />
         </state>
       </provider>
     </entry>

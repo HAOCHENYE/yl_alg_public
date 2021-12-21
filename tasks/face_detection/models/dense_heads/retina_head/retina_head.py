@@ -163,9 +163,7 @@ class ClassHead(nn.Module):
 
     def forward(self, x):
         out = self.conv1x1(x)
-        out = out.permute(0, 2, 3, 1).contiguous()
-
-        return out.view(out.shape[0], -1, 2)
+        return out
 
 
 class BboxHead(nn.Module):
@@ -187,9 +185,7 @@ class BboxHead(nn.Module):
 
     def forward(self, x):
         out = self.conv1x1(x)
-        out = out.permute(0, 2, 3, 1).contiguous()
-
-        return out.view(out.shape[0], -1, 4)
+        return out
 
 
 class LandmarkHead(nn.Module):
@@ -207,9 +203,7 @@ class LandmarkHead(nn.Module):
 
     def forward(self, x):
         out = self.conv1x1(x)
-        out = out.permute(0, 2, 3, 1).contiguous()
-
-        return out.view(out.shape[0], -1, 10)
+        return out
 
 
 class MultiBoxLoss(nn.Module):
@@ -469,18 +463,27 @@ class RetinaFace(nn.Module):
         land_mark = self.LandmarkHead[level](feat)
         return logits, bbox_reg, land_mark
 
-    def forward(self, feats):
-        assert len(feats) == self.fpn_num
-
-        logits, bbox_reg, land_mark = multi_apply(
+    def simple_forward(self, feats):
+        logits, bbox_regs, land_marks = multi_apply(
             self.forward_single, feats, [
                 level for level in range(
                     self.fpn_num)])
-        bbox_reg = torch.cat(bbox_reg, dim=1)
-        logits = torch.cat(logits, dim=1)
-        land_mark = torch.cat(land_mark, dim=1)
+        return logits, bbox_regs, land_marks
 
-        return bbox_reg, logits, land_mark
+    def forward(self, feats):
+        batch_size = feats[0].shape[0]
+        assert len(feats) == self.fpn_num
+
+        logits, bbox_regs, land_marks = self.simple_forward(feats)
+        logits = [logit.permute(0, 2, 3, 1).contiguous().view(batch_size, -1, 2) for logit in logits]
+        bbox_regs = [bbox_reg.permute(0, 2, 3, 1).contiguous().view(batch_size, -1, 4) for bbox_reg in bbox_regs]
+        land_marks = [land_mark.permute(0, 2, 3, 1).contiguous().view(batch_size, -1, 10) for land_mark in land_marks]
+
+        bbox_regs = torch.cat(bbox_regs, dim=1)
+        logits = torch.cat(logits, dim=1)
+        land_marks = torch.cat(land_marks, dim=1)
+
+        return bbox_regs, logits, land_marks
 
     def loss(self,
              feats,
@@ -523,6 +526,13 @@ class RetinaFace(nn.Module):
         return boxes
 
     def get_bboxes(self, feats, img_metas, demo=False):
+        """
+
+        :param feats:list[Tensor], Tensor shape: [n c h w]:
+        :param img_metas:
+        :param demo:
+        :return:
+        """
         batch_size = feats[0].shape[0]
         img_shape = img_metas['img_shape']
         if len(img_shape.shape) == 1:

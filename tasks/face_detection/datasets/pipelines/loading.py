@@ -1,8 +1,7 @@
 from general_datasets import PIPELINES
 
-
 @PIPELINES.register_module()
-class LoadAnnotations:
+class LoadDetectionAnnotations:
     """Load multiple types of annotations.
 
     Args:

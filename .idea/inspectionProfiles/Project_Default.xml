@@ -9,5 +9,20 @@
         </list>
       </option>
     </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="torch.zeros" />
+          <option value="torch.randn" />
+          <option value="torch.reshape" />
+          <option value="torch.FloatTensor" />
+          <option value="torch.zeros_like" />
+          <option value="torch.rand" />
+          <option value="torch.sqrt" />
+          <option value="torch.float32" />
+          <option value="torch.ones" />
+        </list>
+      </option>
+    </inspection_tool>
   </profile>
 </component>

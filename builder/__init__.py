@@ -7,7 +7,7 @@ TESTER = Registry('Tester')
 
 MODELS = Registry('models', parent=MMCV_MODELS)
 BACKBONES = MODELS
-DETECTOR = MODELS
+CUMSTOM_MODELS = MODELS
 NECK = MODELS
 HEAD = MODELS
 
@@ -20,12 +20,12 @@ def build_neck(cfg):
     return NECK.build(cfg)
 
 
-def build_detector(cfg):
-    return DETECTOR.build(cfg)
+def build_models(cfg):
+    return CUMSTOM_MODELS.build(cfg)
 
 
 __all__ = ["BaseModels", "MODELS", "TRAINER", "TESTER",
-           "BACKBONES", "NECK", "HEAD", "DETECTOR",
-           "build_head", "build_neck", "build_detector"]
+           "BACKBONES", "NECK", "HEAD", "CUMSTOM_MODELS",
+           "build_head", "build_neck", "CUMSTOM_MODELS"]
 
 

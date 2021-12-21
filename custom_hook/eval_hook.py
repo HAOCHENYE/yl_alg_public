@@ -15,13 +15,14 @@ class EvalHook(BaseEvalHook):
         super().__init__(dataloader, *args, **kwargs)
         self.evaluator = build_evaluator(evaluator)
         self.cat_type = evaluator.get('cat_type', 'append')
+        self.eval_data_type = evaluator.get('data_type', 'ndarray')
 
     def _do_evaluate(self, runner):
         """perform evaluation and save ckpt."""
         if not self._should_evaluate(runner):
             return
 
-        results = single_gpu_test(runner.model, self.dataloader, self.cat_type)
+        results = single_gpu_test(runner.model, self.dataloader, self.cat_type, self.eval_data_type)
         runner.log_buffer.output['eval_iter_num'] = len(self.dataloader)
         key_score = self.evaluator.evaluate(runner, results)
         for key, value in key_score.items():
@@ -37,6 +38,7 @@ class DistEvalHook(BaseDistEvalHook):
         super().__init__(dataloader, *args, **kwargs)
         self.evaluator = build_evaluator(evaluator)
         self.cat_type = evaluator.get('cat_type', 'append')
+        self.eval_data_type = evaluator.get('data_type', 'ndarray')
 
     def _do_evaluate(self, runner):
         """perform evaluation and save ckpt."""
@@ -59,7 +61,9 @@ class DistEvalHook(BaseDistEvalHook):
         results = multi_gpu_test(
             runner.model,
             self.dataloader,
-            self.cat_type)
+            self.cat_type,
+            self.eval_data_type
+        )
         if runner.rank == 0:
             print('\n')
             runner.log_buffer.output['eval_iter_num'] = len(self.dataloader)

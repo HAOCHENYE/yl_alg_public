@@ -1,6 +1,6 @@
 
 import warnings
-from builder import build_detector
+from builder import build_models
 from tasks import TRAINER
 from general_datasets import build_dataset, build_val_dataloader, build_train_dataloader
 from util import get_root_logger, YLDistributedDataParallel, YLDataParallel
@@ -22,7 +22,7 @@ class FaceDetectTrain(object):
         self.meta = meta
 
     def train(self):
-        detector = build_detector(self.cfg.model)
+        detector = build_models(self.cfg.model)
         detector.init_weights()
         train_dataset = build_dataset(self.cfg.data.train.dataset)
         logger = get_root_logger(log_level=self.cfg.log_level)

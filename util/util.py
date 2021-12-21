@@ -2,8 +2,6 @@ from functools import partial
 import random
 import torch
 import numpy as np
-import abc
-
 
 def multi_apply(func, *args, **kwargs):
     """Apply function to a list of arguments.
@@ -69,9 +67,22 @@ def numpy2tensor(results):
     if isinstance(results, np.ndarray):
         return torch.from_numpy(results)
     if isinstance(results, dict):
-        return {key: tensor2numpy(results[key]) for key in results.keys()}
+        return {key: numpy2tensor(results[key]) for key in results.keys()}
     if isinstance(results, list):
-        return [tensor2numpy(ele) for ele in results]
+        return [numpy2tensor(ele) for ele in results]
+    if isinstance(results, tuple):
+        return [numpy2tensor(ele) for ele in results]
+    else:
+        return results
+
+
+def tensor2cpu(results):
+    if isinstance(results, torch.Tensor):
+        return results.detach().cpu()
+    if isinstance(results, dict):
+        return {key: tensor2cpu(results[key]) for key in results.keys()}
+    if isinstance(results, list):
+        return [tensor2cpu(ele) for ele in results]
     else:
         return results
 

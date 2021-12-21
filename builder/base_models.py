@@ -36,10 +36,8 @@ class BaseModels(BaseModule):
         if len(std.shape) != 1:
             std = std[0]
             mean = mean[0]
-        if img.dtype != torch.uint8:
-            return TypeError, "img.dtype must be uint when normalized in detector"
         img = img.float().permute(0, 2, 3, 1)
-        img = (img - std) / mean
+        img = (img - mean) / std
         img = img.permute(0, 3, 1, 2)
         return img
 

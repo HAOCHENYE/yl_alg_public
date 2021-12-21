@@ -1,7 +1,7 @@
 import warnings
 import argparse
 
-from builder import build_detector
+from builder import build_models
 from mmcv import Config
 from mmcv.runner import load_checkpoint
 from general_datasets import Compose
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     # set cudnn_benchmark
     if cfg.get('cudnn_benchmark', False):
         torch.backends.cudnn.benchmark = True
-    detector = build_detector(cfg.model)
+    detector = build_models(cfg.model)
     if args.fuse_conv_bn:
         detector = fuse_conv_bn(detector)
 

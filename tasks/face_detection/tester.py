@@ -1,6 +1,5 @@
-from builder import build_detector
+from builder import build_models
 # TODO better import logic
-from tasks import face_detection
 from general_datasets import build_dataset, build_val_dataloader
 from util import get_root_logger, YLDistributedDataParallel, YLDataParallel
 from mmcv.cnn import fuse_conv_bn
@@ -9,7 +8,7 @@ from mmcv.runner import (get_dist_info, init_dist, load_checkpoint,
 from test_api import single_gpu_test, multi_gpu_test
 from custom_hook import build_evaluator
 from builder import TESTER
-from util import tensor2numpy
+
 
 # def collate_fn(batch):
 #     return batch
@@ -26,7 +25,7 @@ class FaceDetectTest(object):
 
     def test(self):
         rank, _ = get_dist_info()
-        detector = build_detector(self.cfg.model)
+        detector = build_models(self.cfg.model)
         detector.init_weights()
         val_dataset = build_dataset(self.cfg.data.test.dataset)
         val_dataloader = build_val_dataloader(

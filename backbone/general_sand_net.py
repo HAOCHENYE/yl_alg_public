@@ -4,6 +4,7 @@ from mmcv.cnn import constant_init, kaiming_init
 from collections import OrderedDict
 from builder import BACKBONES
 import os
+import torch.utils.checkpoint as cp
 
 
 class SandBottleNeck(nn.Module):
@@ -21,28 +22,67 @@ class SandBottleNeck(nn.Module):
         expansion_channels = expansion * mid_channels
         conv_dict = OrderedDict()
 
-        if conv_cfg["type"] in ["RepVGGConv", "DBBConv"]:
-            norm_cfg = None
+        if conv_cfg["type"] in ["RepVGGConv", "DBBConv", "ECBConv"]:
+            custom_conv_norm_cfg = None
+        else:
+            custom_conv_norm_cfg = norm_cfg
 
-        conv_dict["dw1"] = ConvModule(in_channels, in_channels, stride=stride, kernel_size=kernel_size, groups=in_channels,
-                                      act_cfg=act_cfg, norm_cfg=norm_cfg, conv_cfg=conv_cfg)
-        conv_dict["pw1"] = ConvModule(in_channels, out_channels=mid_channels, kernel_size=1, stride=1,
-                                      act_cfg=None, norm_cfg=norm_cfg)
-        conv_dict["pw2"] = ConvModule(mid_channels, out_channels=expansion_channels, kernel_size=1, stride=1,
-                                      act_cfg=act_cfg, norm_cfg=norm_cfg)
-        conv_dict["dw2"] = ConvModule(expansion_channels, expansion_channels, stride=1, kernel_size=kernel_size, groups=expansion_channels,
-                                      act_cfg=act_cfg, norm_cfg=norm_cfg, conv_cfg=conv_cfg)
+        conv_dict["dw1"] = ConvModule(
+            in_channels,
+            in_channels,
+            stride=1,
+            kernel_size=kernel_size,
+            groups=in_channels,
+            act_cfg=act_cfg,
+            norm_cfg=custom_conv_norm_cfg,
+            conv_cfg=conv_cfg)
+        conv_dict["pw1"] = ConvModule(
+            in_channels,
+            out_channels=mid_channels,
+            kernel_size=1,
+            stride=1,
+            act_cfg=None,
+            norm_cfg=norm_cfg)
+        conv_dict["pw2"] = ConvModule(
+            mid_channels,
+            out_channels=expansion_channels,
+            kernel_size=1,
+            stride=1,
+            act_cfg=act_cfg,
+            norm_cfg=norm_cfg)
+        conv_dict["dw2"] = ConvModule(
+            expansion_channels,
+            expansion_channels,
+            stride=stride,
+            kernel_size=kernel_size,
+            groups=expansion_channels,
+            act_cfg=None,
+            norm_cfg=custom_conv_norm_cfg,
+            conv_cfg=conv_cfg)
 
         self.block = nn.Sequential(conv_dict)
         if in_channels == mid_channels * expansion and stride == 1:
             self.short_cut = nn.Identity()
         else:
             shortcut_dict = OrderedDict()
-            shortcut_dict["dw"] = ConvModule(in_channels, in_channels, stride=stride, kernel_size=kernel_size, groups=in_channels,
-                                             act_cfg=act_cfg, norm_cfg=norm_cfg, conv_cfg=conv_cfg)
+            shortcut_dict["pw"] = ConvModule(
+                in_channels,
+                expansion_channels,
+                kernel_size=1,
+                stride=1,
+                act_cfg=act_cfg,
+                norm_cfg=norm_cfg)
 
-            shortcut_dict["pw"] = ConvModule(in_channels, expansion_channels, kernel_size=1, stride=1,
-                                             act_cfg=act_cfg, norm_cfg=norm_cfg)
+            shortcut_dict["dw"] = ConvModule(
+                expansion_channels,
+                expansion_channels,
+                stride=stride,
+                kernel_size=kernel_size,
+                groups=expansion_channels,
+                act_cfg=None,
+                norm_cfg=norm_cfg,
+                conv_cfg=conv_cfg)
+
             self.short_cut = nn.Sequential(shortcut_dict)
 
     def forward(self, x):
@@ -50,25 +90,40 @@ class SandBottleNeck(nn.Module):
 
 
 class SandStage(nn.Module):
-    def __init__(self, in_channel, stage_channel, num_block, kernel_size=3, expansion=4,
-                 act_cfg=dict(type='ReLU'),
-                 norm_cfg=dict(type='BN'),
-                 conv_cfg=dict(type="Conv2d")):
+    def __init__(
+        self,
+        in_channel,
+        stage_channel,
+        num_block,
+        kernel_size=3,
+        expansion=4,
+        act_cfg=dict(
+            type='ReLU'),
+        norm_cfg=dict(
+            type='BN'),
+            conv_cfg=dict(
+                type="Conv2d")):
         super().__init__()
         LayerDict = OrderedDict()
         for num in range(num_block):
             if num == 0:
-                LayerDict["Block{}".format(num)] = SandBottleNeck(in_channel, stage_channel, stride=2,
-                                                                  kernel_size=kernel_size, expansion=expansion,
-                                                                  act_cfg=act_cfg, norm_cfg=norm_cfg,
-                                                                  conv_cfg=conv_cfg
-                                                                  )
+                LayerDict["Block{}".format(num)] = SandBottleNeck(in_channel,
+                                                                  stage_channel,
+                                                                  stride=2,
+                                                                  kernel_size=kernel_size,
+                                                                  expansion=expansion,
+                                                                  act_cfg=act_cfg,
+                                                                  norm_cfg=norm_cfg,
+                                                                  conv_cfg=conv_cfg)
                 continue
-            LayerDict["Block{}".format(num)] = SandBottleNeck(stage_channel * expansion, stage_channel, stride=1,
-                                                              kernel_size=kernel_size, expansion=expansion,
-                                                              act_cfg=act_cfg, norm_cfg=norm_cfg,
-                                                              conv_cfg=conv_cfg
-                                                              )
+            LayerDict["Block{}".format(num)] = SandBottleNeck(stage_channel * expansion,
+                                                              stage_channel,
+                                                              stride=1,
+                                                              kernel_size=kernel_size,
+                                                              expansion=expansion,
+                                                              act_cfg=act_cfg,
+                                                              norm_cfg=norm_cfg,
+                                                              conv_cfg=conv_cfg)
         self.stage = nn.Sequential(LayerDict)
 
     def forward(self, x):
@@ -87,7 +142,8 @@ class GeneralSandNet(nn.Module):
                  num_out=5,
                  norm_cfg=dict(type='BN', requires_grad=True),
                  act_cfg=dict(type='ReLU'),
-                 conv_cfg=dict(type="DBBConv")
+                 conv_cfg=dict(type="DBBConv"),
+                 with_cp=False,
                  ):
         super(GeneralSandNet, self).__init__()
         if isinstance(kernel_size, int):
@@ -108,14 +164,27 @@ class GeneralSandNet(nn.Module):
         self.start_stage = len(stage_channels) - num_out + 1
         self.stage_nums = len(stage_channels)
         self.stages = nn.ModuleList()
-        self.stem = ConvModule(in_channels, stem_channels, kernel_size=3, stride=2, padding=1,
-                               norm_cfg=norm_cfg, act_cfg=act_cfg)
+        self.with_cp = with_cp
+        self.stem = ConvModule(
+            in_channels,
+            stem_channels,
+            kernel_size=3,
+            stride=2,
+            padding=1,
+            norm_cfg=norm_cfg,
+            act_cfg=act_cfg)
 
         in_channel = stem_channels
         for num_stages in range(self.stage_nums):
-            stage = SandStage(in_channel, stage_channel=stage_channels[num_stages],
-                              num_block=block_per_stage[num_stages], kernel_size=kernel_sizes[num_stages],
-                              expansion=expansions[num_stages], act_cfg=act_cfg, norm_cfg=norm_cfg, conv_cfg=conv_cfg)
+            stage = SandStage(
+                in_channel,
+                stage_channel=stage_channels[num_stages],
+                num_block=block_per_stage[num_stages],
+                kernel_size=kernel_sizes[num_stages],
+                expansion=expansions[num_stages],
+                act_cfg=act_cfg,
+                norm_cfg=norm_cfg,
+                conv_cfg=conv_cfg)
             in_channel = stage_channels[num_stages] * expansions[num_stages]
             self.stages.append(stage)
 

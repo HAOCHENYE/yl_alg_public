@@ -5,6 +5,7 @@ import numpy as np
 from ..builder import PIPELINES
 import torch
 
+
 try:
     from panopticapi.utils import rgb2id
 except ImportError:
@@ -67,8 +68,8 @@ class LoadImageFromFile:
         results['filename'] = filename
         results['ori_filename'] = results['img_info']['filename']
         results['img'] = img
-        results['img_shape'] = torch.Tensor(img.shape)
-        results['ori_shape'] = torch.Tensor(img.shape)
+        results['img_shape'] = np.array(img.shape)
+        results['ori_shape'] = np.array(img.shape)
         results['img_fields'] = ['img']
         return results
 
@@ -106,8 +107,8 @@ class LoadImageFromWebcam(LoadImageFromFile):
         results['filename'] = None
         results['ori_filename'] = None
         results['img'] = img
-        results['img_shape'] = img.shape
-        results['ori_shape'] = img.shape
+        results['img_shape'] = np.array(img.shape)
+        results['ori_shape'] = np.array(img.shape)
         results['img_fields'] = ['img']
         return results
 

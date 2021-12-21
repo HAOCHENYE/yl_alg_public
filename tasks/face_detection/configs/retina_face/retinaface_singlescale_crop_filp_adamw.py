@@ -52,8 +52,6 @@ train_pipline = [
 
 val_pipline = [
             dict(type='LoadImageFromFile'),
-            # dict(type="ResizeImage", img_scale=(640, 640), pad_val=127.5, keep_ratio=False),
-            # dict(type='Pad', size_divisor=32, pad_val=127.5),
             dict(
                 type='Normalize',
                 mean=(127.5, 127.5, 127.5),
@@ -121,7 +119,7 @@ device_ids = range(0, 2)
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
 
-work_dir = './face_detection/work_dirs/retinaface_singlescale_crop_filp_sgd'
+work_dir = './face_detection/work_dirs/retinaface_singlescale_crop_filp_adamw'
 load_from = None
 resume_from = None
 # resume_from = None

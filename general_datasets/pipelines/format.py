@@ -3,7 +3,7 @@ import numpy as np
 import torch
 from collections.abc import Sequence
 import mmcv
-
+from util import numpy2tensor
 
 def to_tensor(data):
     """Convert objects of various python types to :obj:`torch.Tensor`.
@@ -37,9 +37,14 @@ class Formatting(object):
                  collect_key=[],
                  meta_keys=('filename', 'ori_filename', 'ori_shape',
                             'img_shape', 'pad_shape', 'scale_factor',
-                            'img_norm_cfg')
+                            'img_norm_cfg'),
                  ):
-
+        '''
+        :param pad_cfg:
+        :param collect_key:
+        :param meta_keys:
+        :param ignored_keys: keys should not be passed to collate function
+        '''
         self.pad_key = pad_cfg["key"]
         self.pad_num = pad_cfg["pad_num"]
         self.collect_key = collect_key
@@ -115,8 +120,7 @@ class Formatting(object):
             meta_dict['gt_num'] = results['gt_num']
         for key in self.meta_keys:
             value = results[key]
-            if isinstance(value, np.ndarray):
-                value = torch.from_numpy(value)
+            value = numpy2tensor(value)
             meta_dict[key] = value
 
         data = {}

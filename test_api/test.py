@@ -3,10 +3,10 @@ import torch
 import mmcv
 from mmcv.runner import get_dist_info
 import itertools
-from util import dist_comm, tensor2numpy
+from util import dist_comm, tensor2numpy, tensor2cpu
 
 
-def single_gpu_test(model, data_loader, type='append'):
+def single_gpu_test(model, data_loader, type='append', eval_data_type='ndarray'):
     model.eval()
     results = []
     dataset = data_loader.dataset
@@ -14,6 +14,7 @@ def single_gpu_test(model, data_loader, type='append'):
     for i, data in enumerate(data_loader):
         with torch.no_grad():
             result = model.forward_test(**data)
+        result = tensor2cpu(result)
         batch_size = len(result['img_metas']['filename'])
         if type == 'append':
             results.append(result)
@@ -21,11 +22,12 @@ def single_gpu_test(model, data_loader, type='append'):
             results.extend(result)
         for _ in range(batch_size):
             prog_bar.update()
-    results = tensor2numpy(results)
+    if eval_data_type == 'ndarray':
+        results = tensor2numpy(results)
     return results
 
 
-def multi_gpu_test(model, data_loader, type='append'):
+def multi_gpu_test(model, data_loader, type='append', eval_data_type='ndarray'):
     """Test model with multiple gpus.
 
     This method tests model with multiple gpus and collects the results
@@ -54,7 +56,7 @@ def multi_gpu_test(model, data_loader, type='append'):
     for i, data in enumerate(data_loader):
         with torch.no_grad():
             result = model.forward_test(**data)
-
+        result = tensor2cpu(result)
         if type == 'append':
             results.append(result)
         else:
@@ -65,9 +67,11 @@ def multi_gpu_test(model, data_loader, type='append'):
             for _ in range(batch_size * world_size):
                 prog_bar.update()
 
+
     dist_comm.synchronize()
     results = dist_comm.gather(results, dst=0)
     results = list(itertools.chain(*results))
-    results = tensor2numpy(results)
+    if eval_data_type == 'ndarray':
+        results = tensor2numpy(results)
     # collect results from all ranks
     return results

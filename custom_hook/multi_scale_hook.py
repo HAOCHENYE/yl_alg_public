@@ -6,7 +6,7 @@ import torch
 from mmcv.runner import get_dist_info
 from mmcv.runner.hooks import HOOKS, Hook
 from torch import distributed as dist
-
+from mmcv.runner import EpochBasedRunner, IterBasedRunner
 
 @HOOKS.register_module()
 class SyncRandomSizeHook(Hook):
@@ -51,7 +51,7 @@ class SyncRandomSizeHook(Hook):
         self.iter_interval = iter_interval
         self.device = device
 
-    def after_train_iter(self, runner):
+    def before_train_iter(self, runner):
         """Change the dataset output image size."""
         if self.ratio_range is not None and (runner.iter +
                                              1) % self.iter_interval == 0:
@@ -69,27 +69,11 @@ class SyncRandomSizeHook(Hook):
             if self.is_distributed:
                 dist.barrier()
                 dist.broadcast(tensor, 0)
+            if isinstance(runner, EpochBasedRunner):
+                runner.data_loader.batch_sampler.new_input_dim = (tensor[0].item(), tensor[1].item())
+            elif isinstance(runner, IterBasedRunner):
+                runner.data_loader.iter_loader._index_sampler.new_input_dim = (tensor[0].item(), tensor[1].item())
+            else:
+                raise TypeError('Unknown type runner!')
 
-            runner.data_loader.batch_sampler.new_input_dim = (tensor[0].item(), tensor[1].item())
 
-
-    def after_train_epoch(self, runner):
-        """Change the dataset output image size."""
-        if self.ratio_range is not None and (runner.epoch +
-                                             1) % self.interval == 0:
-            # Due to DDP and DP get the device behavior inconsistent,
-            # so we did not get the device from runner.model.
-            tensor = torch.LongTensor(2).to(self.device)
-
-            if self.rank == 0:
-                size_factor = self.img_scale[1] * 1. / self.img_scale[0]
-                size = random.randint(*self.ratio_range)
-                size = (int(32 * size), 32 * int(size * size_factor))
-                tensor[0] = size[0]
-                tensor[1] = size[1]
-
-            if self.is_distributed:
-                dist.barrier()
-                dist.broadcast(tensor, 0)
-
-            runner.data_loader.batch_sampler.new_input_dim = (tensor[0].item(), tensor[1].item())
